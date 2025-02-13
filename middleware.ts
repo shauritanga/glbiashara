@@ -11,7 +11,7 @@ import {
 export function middleware(request: NextRequest) {
   const { nextUrl } = request;
 
-  const isLoggedIn = true;
+  const isLoggedIn = false;
   console.log({ isLoggedIn });
 
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrrefix);
