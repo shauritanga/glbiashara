@@ -11,7 +11,7 @@ import {
 export async function middleware(request: NextRequest) {
   const { nextUrl } = request;
 
-  console.log(request.cookies.has("authjs.session-token"));
+  console.log(request.cookies);
 
   const isLoggedIn = request.cookies.has("authjs.session-token");
 
