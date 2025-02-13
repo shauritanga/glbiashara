@@ -8,11 +8,12 @@ import {
 } from "./routes";
 
 // This function can be marked `async` if using `await` inside
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { nextUrl } = request;
 
-  const isLoggedIn = false;
-  console.log({ isLoggedIn });
+  console.log(request.cookies.has("authjs.session-token"));
+
+  const isLoggedIn = request.cookies.has("authjs.session-token");
 
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrrefix);
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
@@ -23,7 +24,6 @@ export function middleware(request: NextRequest) {
   }
 
   if (isAuthRoute) {
-    console.log({ isLoggedIn });
     if (isLoggedIn) {
       return NextResponse.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
     }
