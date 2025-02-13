@@ -2,6 +2,8 @@ import { Suspense } from "react";
 import getClubs from "@/actions/getClubs";
 import SearchPages from "./compnonents/SearchPages";
 
+export const dynamic = "force-dynamic";
+
 export default async function PagesListPage() {
   const pages = await getClubs();
   console.log({ pages });

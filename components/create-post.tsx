@@ -59,7 +59,7 @@ export default function CreatePostModal({
       }
 
       const result = await createPost(formData);
-      if (result.success) {
+      if (result?.success) {
         // Reset form and close modal
         setContent("");
         setFile(null);

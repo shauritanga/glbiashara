@@ -2,6 +2,8 @@ import { Suspense } from "react";
 import SearchPages from "./components/SearchPages";
 import getSchools from "@/actions/getSchools";
 
+export const dynamic = "force-dynamic";
+
 export default async function PagesListPage() {
   const pages = await getSchools();
 
