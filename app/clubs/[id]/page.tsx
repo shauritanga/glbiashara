@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import getClub from "@/actions/getClub";
+import { getPackedSettings } from "http2";
+import getPagePosts from "@/actions/getPagePosts";
+import ClubFeed from "@/components/ClubFeed";
 
 export default async function FootballClubPage({
   params,
@@ -11,6 +14,7 @@ export default async function FootballClubPage({
 
   // Fetch club data (this is async and should be awaited)
   const club = await getClub(id).catch(() => null);
+  const posts = await getPagePosts(id).catch(() => []);
 
   // Handle case where club is not found
   if (!club) {
@@ -42,7 +46,7 @@ export default async function FootballClubPage({
       {/* Main Content */}
       <div className="col-span-6 m-3">
         {/* Placeholder for ClubFeed component */}
-        {/* <ClubFeed posts={posts} /> */}
+        <ClubFeed posts={posts} />
       </div>
 
       {/* Right Sidebar */}
