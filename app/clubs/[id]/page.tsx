@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import getClub from "@/actions/getClub";
-import { getPackedSettings } from "http2";
 import getPagePosts from "@/actions/getPagePosts";
 import ClubFeed from "@/components/ClubFeed";
+
+export const dynamic = "force-dynamic";
 
 export default async function FootballClubPage({
   params,

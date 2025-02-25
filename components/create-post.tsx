@@ -86,9 +86,7 @@ export default function CreatePostModal({
         <Button className="mb-8">Create Post</Button>
       </DialogTrigger>
       <DialogContent>
-        <DialogHeader>
-          <DialogTitle>Create a Post</DialogTitle>
-        </DialogHeader>
+      
         <form onSubmit={handleSubmit} className="space-y-4">
           <Textarea
             value={content}

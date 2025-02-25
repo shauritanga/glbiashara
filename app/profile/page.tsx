@@ -10,10 +10,12 @@ import { auth } from "@/auth";
 import { revalidatePath } from "next/cache";
 import Link from "next/link";
 import UserPages from "./components/UserPages";
+import getClubs from "@/actions/getClubs";
 
 export default async function ProfilePage() {
   const session = await auth();
   const profile = await getUser(session?.user?.email!);
+  const clubs = await getClubs();
 
   const refreshProfile = async () => {
     "use server";
@@ -36,7 +38,7 @@ export default async function ProfilePage() {
         <h1 className="text-3xl font-bold mb-2">{profile.name}</h1>
         <p className="text-gray-600 mb-4">{profile.email}</p>
         <div className="flex space-x-4">
-          <EditProfileModal profile={profile} />
+          <EditProfileModal profile={profile} clubs={clubs} />
           <CreatePageModal />
           <CreatePostModal refreshPosts={refreshProfile} />
         </div>

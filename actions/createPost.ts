@@ -1,8 +1,6 @@
 "use server";
 
-import { mkdir, writeFile, access } from "fs/promises";
 import cloudinary from "cloudinary";
-import { join } from "path";
 import dbConnect from "@/lib/mongodb";
 import Post from "@/models/Post";
 import { auth } from "@/auth";
