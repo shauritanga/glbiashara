@@ -1,9 +1,9 @@
-import { IPosts } from "@/types";
+import { IPost } from "@/models/Post";
 import { MoreHorizontal } from "lucide-react";
 import Image from "next/image";
 
 interface PostProps {
-  post: IPosts;
+  post: IPost;
 }
 
 export function Feed({ post }: PostProps) {
@@ -14,9 +14,9 @@ export function Feed({ post }: PostProps) {
         <MoreHorizontal />
       </div>
       <div className="w-full h-[400px]">
-        {post.type === "image" ? (
+        {post.mediaType === "image" ? (
           <Image
-            src={post.url.toString()}
+            src={post.mediaUrl.toString()}
             width={600}
             height={400}
             objectFit="cover"
@@ -25,7 +25,7 @@ export function Feed({ post }: PostProps) {
           />
         ) : (
           <video
-            src={post.url.toString()}
+            src={post.mediaUrl.toString()}
             controls
             className="w-full rounded-lg"
           >
