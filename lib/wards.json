@@ -1,0 +1,109 @@
+[
+  {
+    "district": "Arusha City",
+    "wards": [
+      "Baraa",
+      "Bwawani",
+      "Daraja II",
+      "Elerai",
+      "Engutoto",
+      "Kaloleni",
+      "Kimandolu",
+      "Lemara",
+      "Levolosi",
+      "Ngarenaro",
+      "Olasiti",
+      "Sekei",
+      "Sokon I",
+      "Sombetini",
+      "Themi",
+      "Unga Ltd"
+    ]
+  },
+  {
+    "district": "Kinondoni",
+    "wards": [
+      "Bunju",
+      "Hananasif",
+      "Kawe",
+      "Kigogo",
+      "Kijitonyama",
+      "Kinondoni",
+      "Kunduchi",
+      "Mabwepande",
+      "Magomeni",
+      "Makongo",
+      "Makumbusho",
+      "Mbezi Juu",
+      "Mbweni",
+      "Mikocheni",
+      "Msasani",
+      "Mwananyamala",
+      "Mzimuni",
+      "Ndugumbi",
+      "Tandale",
+      "Wazo"
+    ]
+  },
+  {
+    "district": "Ilala",
+    "wards": [
+      "Buguruni",
+      "Chanika",
+      "Gerezani",
+      "Ilala",
+      "Jangwani",
+      "Kariakoo",
+      "Kibonde Maji",
+      "Kinyerezi",
+      "Kitunda",
+      "Kivukoni",
+      "Mchafukoge",
+      "Segerea",
+      "Tabata",
+      "Ukonga",
+      "Vingunguti"
+    ]
+  },
+  {
+    "district": "Temeke",
+    "wards": [
+      "Azimio",
+      "Buza",
+      "Chang'ombe",
+      "Keko",
+      "Kibada",
+      "Kiburugwa",
+      "Kigamboni",
+      "Kilakala",
+      "Kurasini",
+      "Mbagala",
+      "Miburani",
+      "Mtoni",
+      "Sandali",
+      "Tandika",
+      "Temeke",
+      "Toangoma",
+      "Yombo Vituka"
+    ]
+  },
+  {
+    "district": "Ubungo",
+    "wards": [
+      "Sinza",
+      "Manzese",
+      "Ubungo",
+      "Mabibo",
+      "Mburahati",
+      "Makuburi",
+      "Makurumla",
+      "Kimara",
+      "Msigani",
+      "Goba",
+      "Mbezi",
+      "Saranga",
+      "Kibamba",
+      "Kwembe"
+    ]
+  }
+]

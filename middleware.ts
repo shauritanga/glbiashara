@@ -10,8 +10,6 @@ import {
 export async function middleware(request: NextRequest) {
   const { nextUrl } = request;
 
-  console.log("Middleware running for path:", nextUrl.pathname);
-
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrrefix);
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
@@ -26,7 +24,6 @@ export async function middleware(request: NextRequest) {
     request.cookies.get("authjs.session-token")?.value;
 
   const isLoggedIn = !!authToken;
-  console.log("Is logged in:", isLoggedIn);
 
   if (isAuthRoute) {
     if (isLoggedIn) {

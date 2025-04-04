@@ -1,13 +1,13 @@
 import Image from "next/image";
 import dbConnect from "@/lib/mongodb";
 import { unstable_cache } from "next/cache";
-import { getPosts } from "@/actions/getPosts";
+import { getPosts, getUserPosts } from "@/actions/getPosts";
 import { auth } from "@/auth";
 
 const getCachedPosts = unstable_cache(
   async (id: string) => {
     await dbConnect();
-    const posts = await getPosts(id);
+    const posts = await getUserPosts(id);
     return posts;
   },
   ["posts"],

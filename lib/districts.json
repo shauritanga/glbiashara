@@ -1,0 +1,857 @@
+[
+  {
+    "region": "Arusha",
+    "districts": [
+      {
+        "label": "Arusha CC",
+        "value": "Arusha CC"
+      },
+      {
+        "label": "Arusha DC",
+        "value": "Arusha DC"
+      },
+      {
+        "label": "Karatu",
+        "value": "Karatu"
+      },
+      {
+        "label": "Longido",
+        "value": "Longido"
+      },
+      {
+        "label": "Meru",
+        "value": "Meru"
+      },
+      {
+        "label": "Monduli",
+        "value": "Monduli"
+      }
+    ]
+  },
+  {
+    "region": "Dar es Salaam",
+    "districts": [
+      {
+        "label": "Ilala",
+        "value": "Ilala"
+      },
+      {
+        "label": "Kigamboni",
+        "value": "Kigamboni"
+      },
+      {
+        "label": "Kinondoni",
+        "value": "Kinondoni"
+      },
+      {
+        "label": "Temeke",
+        "value": "Temeke"
+      },
+      {
+        "label": "Ubungo",
+        "value": "Ubungo"
+      }
+    ]
+  },
+  {
+    "region": "Dodoma",
+    "districts": [
+      {
+        "label": "Bahi",
+        "value": "Bahi"
+      },
+      {
+        "label": "Chamwino",
+        "value": "Chamwino"
+      },
+      {
+        "label": "Chemba",
+        "value": "Chemba"
+      },
+      {
+        "label": "Dodoma MC",
+        "value": "Dodoma MC"
+      },
+      {
+        "label": "Kondoa",
+        "value": "Kondoa"
+      },
+      {
+        "label": "Kongwa",
+        "value": "Kongwa"
+      },
+      {
+        "label": "Mpwapwa",
+        "value": "Mpwapwa"
+      }
+    ]
+  },
+  {
+    "region": "Geita",
+    "districts": [
+      {
+        "label": "Bukombe",
+        "value": "Bukombe"
+      },
+      {
+        "label": "Chato",
+        "value": "Chato"
+      },
+      {
+        "label": "Geita DC",
+        "value": "Geita DC"
+      },
+      {
+        "label": "Mbogwe",
+        "value": "Mbogwe"
+      },
+      {
+        "label": "Nyang'hwale",
+        "value": "Nyang'hwale"
+      }
+    ]
+  },
+  {
+    "region": "Iringa",
+    "districts": [
+      {
+        "label": "Iringa DC",
+        "value": "Iringa DC"
+      },
+      {
+        "label": "Iringa MC",
+        "value": "Iringa MC"
+      },
+      {
+        "label": "Kilolo",
+        "value": "Kilolo"
+      },
+      {
+        "label": "Mafinga",
+        "value": "Mafinga"
+      },
+      {
+        "label": "Mufindi",
+        "value": "Mufindi"
+      }
+    ]
+  },
+  {
+    "region": "Kagera",
+    "districts": [
+      {
+        "label": "Biharamulo",
+        "value": "Biharamulo"
+      },
+      {
+        "label": "Bukoba DC",
+        "value": "Bukoba DC"
+      },
+      {
+        "label": "Bukoba MC",
+        "value": "Bukoba MC"
+      },
+      {
+        "label": "Karagwe",
+        "value": "Karagwe"
+      },
+      {
+        "label": "Kyerwa",
+        "value": "Kyerwa"
+      },
+      {
+        "label": "Missenyi",
+        "value": "Missenyi"
+      },
+      {
+        "label": "Ngara",
+        "value": "Ngara"
+      }
+    ]
+  },
+  {
+    "region": "Katavi",
+    "districts": [
+      {
+        "label": "Katavi DC",
+        "value": "Katavi DC"
+      },
+      {
+        "label": "Mlele",
+        "value": "Mlele"
+      },
+      {
+        "label": "Mpanda MC",
+        "value": "Mpanda MC"
+      },
+      {
+        "label": "Mpimbwe",
+        "value": "Mpimbwe"
+      }
+    ]
+  },
+  {
+    "region": "Kigoma",
+    "districts": [
+      {
+        "label": "Buhigwe",
+        "value": "Buhigwe"
+      },
+      {
+        "label": "Kakonko",
+        "value": "Kakonko"
+      },
+      {
+        "label": "Kasulu DC",
+        "value": "Kasulu DC"
+      },
+      {
+        "label": "Kasulu TC",
+        "value": "Kasulu TC"
+      },
+      {
+        "label": "Kibondo",
+        "value": "Kibondo"
+      },
+      {
+        "label": "Kigoma DC",
+        "value": "Kigoma DC"
+      },
+      {
+        "label": "Kigoma MC",
+        "value": "Kigoma MC"
+      },
+      {
+        "label": "Uvinza",
+        "value": "Uvinza"
+      }
+    ]
+  },
+  {
+    "region": "Kilimanjaro",
+    "districts": [
+      {
+        "label": "Hai",
+        "value": "Hai"
+      },
+      {
+        "label": "Moshi DC",
+        "value": "Moshi DC"
+      },
+      {
+        "label": "Moshi MC",
+        "value": "Moshi MC"
+      },
+      {
+        "label": "Mwanga",
+        "value": "Mwanga"
+      },
+      {
+        "label": "Rombo",
+        "value": "Rombo"
+      },
+      {
+        "label": "Same",
+        "value": "Same"
+      },
+      {
+        "label": "Siha",
+        "value": "Siha"
+      }
+    ]
+  },
+  {
+    "region": "Lindi",
+    "districts": [
+      {
+        "label": "Kilwa",
+        "value": "Kilwa"
+      },
+      {
+        "label": "Lindi DC",
+        "value": "Lindi DC"
+      },
+      {
+        "label": "Lindi MC",
+        "value": "Lindi MC"
+      },
+      {
+        "label": "Liwale",
+        "value": "Liwale"
+      },
+      {
+        "label": "Nachingwea",
+        "value": "Nachingwea"
+      },
+      {
+        "label": "Ruangwa",
+        "value": "Ruangwa"
+      }
+    ]
+  },
+  {
+    "region": "Manyara",
+    "districts": [
+      {
+        "label": "Babati DC",
+        "value": "Babati DC"
+      },
+      {
+        "label": "Babati TC",
+        "value": "Babati TC"
+      },
+      {
+        "label": "Hanang",
+        "value": "Hanang"
+      },
+      {
+        "label": "Kiteto",
+        "value": "Kiteto"
+      },
+      {
+        "label": "Mbulu",
+        "value": "Mbulu"
+      },
+      {
+        "label": "Simanjiro",
+        "value": "Simanjiro"
+      }
+    ]
+  },
+  {
+    "region": "Mara",
+    "districts": [
+      {
+        "label": "Bunda",
+        "value": "Bunda"
+      },
+      {
+        "label": "Butiama",
+        "value": "Butiama"
+      },
+      {
+        "label": "Musoma DC",
+        "value": "Musoma DC"
+      },
+      {
+        "label": "Musoma MC",
+        "value": "Musoma MC"
+      },
+      {
+        "label": "Rorya",
+        "value": "Rorya"
+      },
+      {
+        "label": "Serengeti",
+        "value": "Serengeti"
+      },
+      {
+        "label": "Tarime DC",
+        "value": "Tarime DC"
+      },
+      {
+        "label": "Tarime TC",
+        "value": "Tarime TC"
+      }
+    ]
+  },
+  {
+    "region": "Mbeya",
+    "districts": [
+      {
+        "label": "Busokelo",
+        "value": "Busokelo"
+      },
+      {
+        "label": "Chunya",
+        "value": "Chunya"
+      },
+      {
+        "label": "Kyela",
+        "value": "Kyela"
+      },
+      {
+        "label": "Mbeya CC",
+        "value": "Mbeya CC"
+      },
+      {
+        "label": "Mbeya DC",
+        "value": "Mbeya DC"
+      },
+      {
+        "label": "Rungwe",
+        "value": "Rungwe"
+      }
+    ]
+  },
+  {
+    "region": "Morogoro",
+    "districts": [
+      {
+        "label": "Gairo",
+        "value": "Gairo"
+      },
+      {
+        "label": "Ifakara TC",
+        "value": "Ifakara TC"
+      },
+      {
+        "label": "Kilombero",
+        "value": "Kilombero"
+      },
+      {
+        "label": "Kilosa",
+        "value": "Kilosa"
+      },
+      {
+        "label": "Malinyi",
+        "value": "Malinyi"
+      },
+      {
+        "label": "Morogoro DC",
+        "value": "Morogoro DC"
+      },
+      {
+        "label": "Morogoro MC",
+        "value": "Morogoro MC"
+      },
+      {
+        "label": "Mvomero",
+        "value": "Mvomero"
+      },
+      {
+        "label": "Ulanga",
+        "value": "Ulanga"
+      }
+    ]
+  },
+  {
+    "region": "Mtwara",
+    "districts": [
+      {
+        "label": "Masasi DC",
+        "value": "Masasi DC"
+      },
+      {
+        "label": "Masasi TC",
+        "value": "Masasi TC"
+      },
+      {
+        "label": "Mtwara DC",
+        "value": "Mtwara DC"
+      },
+      {
+        "label": "Mtwara MC",
+        "value": "Mtwara MC"
+      },
+      {
+        "label": "Nanyumbu",
+        "value": "Nanyumbu"
+      },
+      {
+        "label": "Newala",
+        "value": "Newala"
+      },
+      {
+        "label": "Tandahimba",
+        "value": "Tandahimba"
+      }
+    ]
+  },
+  {
+    "region": "Mwanza",
+    "districts": [
+      {
+        "label": "Ilemela",
+        "value": "Ilemela"
+      },
+      {
+        "label": "Kwimba",
+        "value": "Kwimba"
+      },
+      {
+        "label": "Magu",
+        "value": "Magu"
+      },
+      {
+        "label": "Misungwi",
+        "value": "Misungwi"
+      },
+      {
+        "label": "Mwanza CC",
+        "value": "Mwanza CC"
+      },
+      {
+        "label": "Nyamagana",
+        "value": "Nyamagana"
+      },
+      {
+        "label": "Sengerema",
+        "value": "Sengerema"
+      },
+      {
+        "label": "Ukerewe",
+        "value": "Ukerewe"
+      }
+    ]
+  },
+  {
+    "region": "Njombe",
+    "districts": [
+      {
+        "label": "Ludewa",
+        "value": "Ludewa"
+      },
+      {
+        "label": "Makambako TC",
+        "value": "Makambako TC"
+      },
+      {
+        "label": "Makete",
+        "value": "Makete"
+      },
+      {
+        "label": "Njombe DC",
+        "value": "Njombe DC"
+      },
+      {
+        "label": "Njombe TC",
+        "value": "Njombe TC"
+      },
+      {
+        "label": "Wanging'ombe",
+        "value": "Wanging'ombe"
+      }
+    ]
+  },
+  {
+    "region": "Pemba North",
+    "districts": [
+      {
+        "label": "Micheweni",
+        "value": "Micheweni"
+      },
+      {
+        "label": "Wete",
+        "value": "Wete"
+      }
+    ]
+  },
+  {
+    "region": "Pemba South",
+    "districts": [
+      {
+        "label": "Chake Chake",
+        "value": "Chake Chake"
+      },
+      {
+        "label": "Mkoani",
+        "value": "Mkoani"
+      }
+    ]
+  },
+  {
+    "region": "Pwani",
+    "districts": [
+      {
+        "label": "Bagamoyo",
+        "value": "Bagamoyo"
+      },
+      {
+        "label": "Kibaha DC",
+        "value": "Kibaha DC"
+      },
+      {
+        "label": "Kibaha TC",
+        "value": "Kibaha TC"
+      },
+      {
+        "label": "Kisarawe",
+        "value": "Kisarawe"
+      },
+      {
+        "label": "Mafia",
+        "value": "Mafia"
+      },
+      {
+        "label": "Mkuranga",
+        "value": "Mkuranga"
+      },
+      {
+        "label": "Rufiji",
+        "value": "Rufiji"
+      }
+    ]
+  },
+  {
+    "region": "Rukwa",
+    "districts": [
+      {
+        "label": "Kalambo",
+        "value": "Kalambo"
+      },
+      {
+        "label": "Nkasi",
+        "value": "Nkasi"
+      },
+      {
+        "label": "Sumbawanga DC",
+        "value": "Sumbawanga DC"
+      },
+      {
+        "label": "Sumbawanga MC",
+        "value": "Sumbawanga MC"
+      }
+    ]
+  },
+  {
+    "region": "Ruvuma",
+    "districts": [
+      {
+        "label": "Mbinga",
+        "value": "Mbinga"
+      },
+      {
+        "label": "Namtumbo",
+        "value": "Namtumbo"
+      },
+      {
+        "label": "Nyasa",
+        "value": "Nyasa"
+      },
+      {
+        "label": "Songea DC",
+        "value": "Songea DC"
+      },
+      {
+        "label": "Songea MC",
+        "value": "Songea MC"
+      },
+      {
+        "label": "Tunduru",
+        "value": "Tunduru"
+      }
+    ]
+  },
+  {
+    "region": "Shinyanga",
+    "districts": [
+      {
+        "label": "Kahama DC",
+        "value": "Kahama DC"
+      },
+      {
+        "label": "Kahama TC",
+        "value": "Kahama TC"
+      },
+      {
+        "label": "Kishapu",
+        "value": "Kishapu"
+      },
+      {
+        "label": "Shinyanga DC",
+        "value": "Shinyanga DC"
+      },
+      {
+        "label": "Shinyanga MC",
+        "value": "Shinyanga MC"
+      }
+    ]
+  },
+  {
+    "region": "Simiyu",
+    "districts": [
+      {
+        "label": "Bariadi",
+        "value": "Bariadi"
+      },
+      {
+        "label": "Busega",
+        "value": "Busega"
+      },
+      {
+        "label": "Itilima",
+        "value": "Itilima"
+      },
+      {
+        "label": "Maswa",
+        "value": "Maswa"
+      },
+      {
+        "label": "Meatu",
+        "value": "Meatu"
+      }
+    ]
+  },
+  {
+    "region": "Singida",
+    "districts": [
+      {
+        "label": "Ikungi",
+        "value": "Ikungi"
+      },
+      {
+        "label": "Iramba",
+        "value": "Iramba"
+      },
+      {
+        "label": "Manyoni",
+        "value": "Manyoni"
+      },
+      {
+        "label": "Mkalama",
+        "value": "Mkalama"
+      },
+      {
+        "label": "Singida DC",
+        "value": "Singida DC"
+      },
+      {
+        "label": "Singida MC",
+        "value": "Singida MC"
+      }
+    ]
+  },
+  {
+    "region": "Songwe",
+    "districts": [
+      {
+        "label": "Ileje",
+        "value": "Ileje"
+      },
+      {
+        "label": "Mbozi",
+        "value": "Mbozi"
+      },
+      {
+        "label": "Momba",
+        "value": "Momba"
+      },
+      {
+        "label": "Songwe DC",
+        "value": "Songwe DC"
+      },
+      {
+        "label": "Tunduma TC",
+        "value": "Tunduma TC"
+      }
+    ]
+  },
+  {
+    "region": "Tabora",
+    "districts": [
+      {
+        "label": "Igunga",
+        "value": "Igunga"
+      },
+      {
+        "label": "Kaliua",
+        "value": "Kaliua"
+      },
+      {
+        "label": "Nzega DC",
+        "value": "Nzega DC"
+      },
+      {
+        "label": "Nzega TC",
+        "value": "Nzega TC"
+      },
+      {
+        "label": "Sikonge",
+        "value": "Sikonge"
+      },
+      {
+        "label": "Tabora MC",
+        "value": "Tabora MC"
+      },
+      {
+        "label": "Urambo",
+        "value": "Urambo"
+      },
+      {
+        "label": "Uyui",
+        "value": "Uyui"
+      }
+    ]
+  },
+  {
+    "region": "Tanga",
+    "districts": [
+      {
+        "label": "Handeni DC",
+        "value": "Handeni DC"
+      },
+      {
+        "label": "Handeni TC",
+        "value": "Handeni TC"
+      },
+      {
+        "label": "Kilindi",
+        "value": "Kilindi"
+      },
+      {
+        "label": "Korogwe DC",
+        "value": "Korogwe DC"
+      },
+      {
+        "label": "Korogwe TC",
+        "value": "Korogwe TC"
+      },
+      {
+        "label": "Lushoto",
+        "value": "Lushoto"
+      },
+      {
+        "label": "Muheza",
+        "value": "Muheza"
+      },
+      {
+        "label": "Pangani",
+        "value": "Pangani"
+      },
+      {
+        "label": "Tanga CC",
+        "value": "Tanga CC"
+      }
+    ]
+  },
+  {
+    "region": "Unguja North",
+    "districts": [
+      {
+        "label": "Kaskazini A",
+        "value": "Kaskazini A"
+      },
+      {
+        "label": "Kaskazini B",
+        "value": "Kaskazini B"
+      }
+    ]
+  },
+  {
+    "region": "Unguja South",
+    "districts": [
+      {
+        "label": "Kati",
+        "value": "Kati"
+      },
+      {
+        "label": "Kusini",
+        "value": "Kusini"
+      }
+    ]
+  },
+  {
+    "region": "Zanzibar Urban/West",
+    "districts": [
+      {
+        "label": "Magharibi A",
+        "value": "Magharibi A"
+      },
+      {
+        "label": "Magharibi B",
+        "value": "Magharibi B"
+      }
+    ]
+  }
+]

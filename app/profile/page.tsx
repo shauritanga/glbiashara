@@ -3,7 +3,6 @@ import Image from "next/image";
 
 import PostList from "@/components/post-list";
 import CreatePageModal from "@/components/create-page";
-import CreatePostModal from "@/components/create-post";
 import EditProfileModal from "@/components/edit-profile";
 import { getUser } from "@/actions/getUser";
 import { auth } from "@/auth";
@@ -40,7 +39,12 @@ export default async function ProfilePage() {
         <div className="flex space-x-4">
           <EditProfileModal profile={profile} clubs={clubs} />
           <CreatePageModal />
-          <CreatePostModal refreshPosts={refreshProfile} />
+          <Link
+            href="/profile/posts/new"
+            className="bg-gray-900 rounded text-white items-center px-4 py-1 hover:bg-gray-800 transition duration-300"
+          >
+            Create Post
+          </Link>
         </div>
       </div>
 

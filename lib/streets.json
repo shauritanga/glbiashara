@@ -1,0 +1,91 @@
+[
+  {
+    "ward": "Kariakoo",
+    "streets": [
+      "Swahili Street",
+      "Msimbazi Street",
+      "Congo Street",
+      "Uhuru Street",
+      "Nyamwezi Street",
+      "Mkunguni Street",
+      "Livingstone Street",
+      "Msimbazi/Mkunguni Street",
+      "Mchikichini Street",
+      "Mahiwa Street",
+      "Sikukuu Street",
+      "Lumumba Street",
+      "Ndovu Street",
+      "Mchikichi Street",
+      "Aggrey Street"
+    ]
+  },
+  {
+    "ward": "Mikocheni",
+    "streets": [
+      "Advent Avenue",
+      "Alemap Guesthouse",
+      "Alhaj Muhaj Street",
+      "Amani Lane",
+      "Barabara ya Hashimu",
+      "Barabara ya Viwandani",
+      "Bima Road",
+      "Chato Street",
+      "Chipata Road",
+      "Chwaku Street",
+      "Coca Cola Road",
+      "Congo Street",
+      "Daima",
+      "Eyasi Street",
+      "Garden Road",
+      "Kiko",
+      "Manonge Street",
+      "Migombani Street",
+      "Msikitini Street",
+      "Regent Street",
+      "Rose Garden Road",
+      "Senga Road",
+      "Ursino Street",
+      "Ushindi Street"
+    ]
+  },
+  {
+    "ward": "Mwananyamala",
+    "streets": [
+      "Amani Street",
+      "Baba Mzazi Street",
+      "Baba Mzazi Road",
+      "Banda Street",
+      "Barabara ya Nyumba Nne",
+      "Barabara ya Nyumba Tatu",
+      "Barabara ya Nyumba Mbili",
+      "Barabara ya Nyumba Moja",
+      "Chama cha Mapinduzi Street",
+      "Chuo Kikuu Street",
+      "Dunga Street",
+      "Furaha Street",
+      "Gereza Road",
+      "Juhudi Street",
+      "Kibamba Road",
+      "Kigogo Street",
+      "Kigogo Road",
+      "Kigogo Street Extension",
+      "Kigogo Road Extension",
+      "Kijiji Road",
+      "Kijiji Street",
+      "Kilimahewa Road"
+    ]
+  },
+  {
+    "ward": "Sinza",
+    "streets": [
+      "Sinza",
+      "Madukani",
+      "Makaburini",
+      "Sinza A",
+      "Sinza B",
+      "Sinza C",
+      "Sinza D",
+      "Sinza E"
+    ]
+  }
+]

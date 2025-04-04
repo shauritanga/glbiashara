@@ -1,0 +1,207 @@
+[
+  {
+    "business": "Advertising and Maraketing",
+    "specifications": [
+      "Advertising Agencies",
+      "Advertising Material Distribution Services",
+      "Advertising Material Distribution Services",
+      "Advertising, Public Relations, and Related Services",
+      "Direct Mail Advertising Services",
+      "Marketing Consulting Services",
+      "Media Buying Agencies",
+      "Media Representatives",
+      "Outdoor Advertising Services",
+      "Public Relations Agencies",
+      "Sales Promotion",
+      "Sales Promotion Services"
+    ]
+  },
+  {
+    "business": "Apparel and Fashion",
+    "specifications": [
+      "Men's wear",
+      "School uniforms",
+      "Athletic and Sports wear",
+      "Women's wear",
+      "Children's wear",
+      "Footwear",
+      "Accessories",
+      "Jewelry",
+      "Watches",
+      "Bags and Luggage",
+      "Hats and Caps",
+      "Sunglasses",
+      "Eyewear",
+      "Belts",
+      "Scarves",
+      "Ties and Bow ties",
+      "Gloves",
+      "Socks",
+      "Underwear"
+    ]
+  },
+  {
+    "business": "Computers and Internet",
+    "specifications": [
+      "Networking",
+      "Cybersecurity",
+      "Web Hosting",
+      "Web Development",
+      "Web Design",
+      "Web Services",
+      "computer hardware",
+      "software applications",
+      "software development"
+    ]
+  },
+
+  {
+    "business": "Agriculture and Farming",
+    "specifications": [
+      "Aquaculture",
+      "Aquaculture Services",
+      "Aquatic Services",
+      "Crop Production",
+      "Crop Production Services",
+      "Dairy Farms",
+      "Farm Management Services",
+      "Fisheries",
+      "Fishing",
+      "Fishing Services",
+      "Forestry and Logging",
+      "Forestry and Logging Services",
+      "Fruit and Tree Nut Farming",
+      "Greenhouse, Nursery, and Floriculture Production",
+      "Hunting and Trapping",
+      "Hunting and Trapping Services",
+      "Irrigation Systems and Equipment Manufacturing",
+      "Livestock Farming",
+      "Logging Services",
+      "Nursery, Greenhouse, Floriculture, and Sod Production",
+      "Oilseed and Grain Farming"
+    ]
+  },
+  {
+    "business": "Arts, Entertainment, and Recreation",
+    "specifications": [
+      "Amusement Arcades",
+      "Amusement Parks and Arcades",
+      "Amusement Parks and Recreation Facilities",
+      "Amusement Parks, Arcades, and Other Recreation Facilities",
+      "Art Dealers and Galleries",
+      "Art Galleries, Dealers, and Auction Houses",
+      "Art Schools and Studios",
+      "Art Studios and Schools"
+    ]
+  },
+  {
+    "business": "Construction",
+    "specifications": [
+      "Asphalt Paving Mixture and Block Manufacturing",
+      "Asphalt Paving Mixture and Block Manufacturing Services",
+      "Asphalt Paving Mixtures and Blocks",
+      "Asphalt Paving, Roofing, and Saturated Materials Manufacturing",
+      "Asphalt, Concrete, and Road Construction Services",
+      "Building Construction",
+      "Building Equipment Contractors",
+      "Building Finishing Contractors",
+      "Building Foundation Contractors",
+      "Building Material Dealers",
+      "Building Materials and Supplies Dealers",
+      "Building Moving and Demolition Services",
+      "Building Site Preparation Contractors"
+    ]
+  },
+  {
+    "business": "Education Services",
+    "specifications": [
+      "Adult and Continuing Education",
+      "omputer and Management Training",
+      "Colleges, ",
+      "Universities",
+      "Educational Support Services",
+      "Primary Schools",
+      "Primary and Secondary Schools",
+      "Secondary Schools"
+    ]
+  },
+  {
+    "business": "Finance and Insurance",
+    "specifications": [
+      "Actuarial Services",
+      "Appraisal Services",
+      "Automobile Insurance",
+      "Banking and Financial Services",
+      "Bonds and Securities Dealers",
+      "Brokers, Dealers, and Agents"
+    ]
+  },
+  {
+    "business": "Health and Medicine",
+    "specifications": [
+      "Acupuncture",
+      "Allergy and Immunology",
+      "Anesthesiology",
+      "Cardiology",
+      "Chiropractic",
+      "Dentistry",
+      "Dermatology",
+      "Emergency Medicine",
+      "Endocrinology",
+      "Family Medicine",
+      "Gastroenterology",
+      "Reproductive",
+      "Genetics",
+      "General Practice",
+      "Geriatrics",
+      "Gynecology and Obstetrics",
+      "Hematology and Oncology",
+      "Internal Medicine",
+      "Medical Genetics",
+      "Nephrology",
+      "Neurology",
+      "Nuclear Medicine",
+      "Obstetrics and Gynecology"
+    ]
+  },
+  {
+    "business": "Household Services",
+    "specifications": [
+      "Appliance Repair Services",
+      "Carpet Cleaning Services",
+      "Cleaning Services, Household and Office"
+    ]
+  },
+  {
+    "business": "Legal Services",
+    "specifications": [
+      "Adoption Agencies, Attorneys, and Services",
+      "Adoption Services, Agencies, and Attorneys"
+    ]
+  },
+  {
+    "business": "Manufacturing",
+    "specifications": ["Aerospace Products and Parts Manufacturing Services"]
+  },
+  { "business": "Real Estate", "specifications": ["Appraisal Services"] },
+  {
+    "business": "Transportation",
+    "specifications": ["Air Transportation Services"]
+  },
+  {
+    "business": "Food and Hotels",
+    "specifications": [
+      "Chips",
+      "Wali",
+      "Samaki",
+      "Maharage",
+      "Ugali",
+      "Maharage",
+      "Kuku",
+      "Nyama",
+      "Fresh juice",
+      "Soda",
+      "Water"
+    ]
+  }
+]

@@ -3,6 +3,8 @@ import Link from "next/link";
 import getClub from "@/actions/getClub";
 import getPagePosts from "@/actions/getPagePosts";
 import ClubFeed from "@/components/ClubFeed";
+import { getPosts } from "@/actions/getPosts";
+import { IPost } from "@/models/Post";
 
 export const dynamic = "force-dynamic";
 
@@ -16,6 +18,12 @@ export default async function FootballClubPage({
   // Fetch club data (this is async and should be awaited)
   const club = await getClub(id).catch(() => null);
   const posts = await getPagePosts(id).catch(() => []);
+  const business = await getPosts();
+  const uniqueCategories = Array.from(
+    new Set(business.map((item: IPost) => item.category))
+  ) as String[];
+
+  console.log({ uniqueCategories });
 
   // Handle case where club is not found
   if (!club) {
@@ -52,6 +60,21 @@ export default async function FootballClubPage({
 
       {/* Right Sidebar */}
       <div className="col-span-3 p-2">
+        {/* Business Opportunities */}
+        <div className="mt-3 flex flex-col p-2">
+          <h5 className="text-gray-800 mb-2">Business Opportunities</h5>
+          <div className="flex flex-wrap gap-2 rounded border p-2">
+            {uniqueCategories.map((item, index) => (
+              <Link
+                key={index.toString()}
+                href={`/business?type=${item}`}
+                className="px-2 py-1 bg-gray-100 text-gray-600 text-sm rounded-full"
+              >
+                {item.toLowerCase()}
+              </Link>
+            ))}
+          </div>
+        </div>
         {/* Health Care Section */}
         <div className="flex flex-col p-2">
           <h5 className="text-gray-800 mb-2 bg-gray-200 p-1 rounded">
