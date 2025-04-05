@@ -105,5 +105,30 @@
       "Kibamba",
       "Kwembe"
     ]
+  },
+  {
+    "district": "Missenyi",
+    "wards": [
+      "Bugandika",
+      "Bugorora",
+      "Buyango",
+      "Bwanjai",
+      "Gera",
+      "Ishozi",
+      "Ishunju",
+      "Kakunyu",
+      "Kanyigo",
+      "Kashenye",
+      "Kikukwe",
+      "Kitobo",
+      "Mushasha",
+      "Mutukula",
+      "Nsunga",
+      "Ruzinga",
+      "Rwabutwa",
+      "Rwakanazi",
+      "Rwamateme",
+      "Kyaka"
+    ]
   }
 ]

@@ -5,6 +5,6 @@ import Post from "@/models/Post";
 export async function getPostByCategory(category: string) {
   try {
     const posts = await Post.find({ category }).populate("user");
-    return posts;
+    return JSON.parse(JSON.stringify(posts));
   } catch (error) {}
 }

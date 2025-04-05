@@ -1,3 +1,4 @@
+"use client";
 import { IPost } from "@/models/Post";
 
 interface PostCardProps {
@@ -21,10 +22,10 @@ export default function PostCard({ post }: PostCardProps) {
   };
 
   return (
-    <div className="flex flex-col bg-white shadow-lg rounded-xl p-4 mb-4 hover:shadow-xl transition-shadow duration-300">
+    <div className="w-full md:max-w-[320px] flex flex-col bg-white shadow-lg rounded-xl p-4 mb-4 hover:shadow-xl transition-shadow duration-300">
       {/* User Info Header */}
       <div className="flex items-center justify-between gap-3 mb-4">
-        <div className="flex items-center gap-2">
+        <div className="flex gap-2">
           <img
             src={post.user.avatarUrl || "/default-avatar.png"}
             //   alt={post.user.name}
@@ -32,10 +33,7 @@ export default function PostCard({ post }: PostCardProps) {
           />
           <div>
             <h4 className="font-semibold text-gray-800 ">
-              {`${post.user.name.split(" ")[0]} ${post.user.name
-                .split(" ")[1]
-                .slice(0, 1)
-                .toString()}`}
+              {`${post.user.name.split(" ")[0]}`}
             </h4>
             <p className="text-xs text-gray-500">{post.user.phone}</p>
           </div>

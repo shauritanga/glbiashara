@@ -87,5 +87,31 @@
       "Sinza D",
       "Sinza E"
     ]
+  },
+  {
+    "ward": "Kanyigo",
+    "streets": [
+      "Bugombe",
+      "Bukoko",
+      "Bukuma",
+      "Busaizi",
+      "Bwere",
+      "Bweyunge",
+      "Byazi",
+      "Kabato",
+      "Kalumyo",
+      "Kangoi",
+      "Kataale",
+      "Kigarama",
+      "Kikukwe",
+      "Mapcarta",
+      "Kishaba",
+      "Kishenge",
+      "Lwagati",
+      "Mugunga",
+      "Mwemage",
+      "Nyungwe",
+      "Rutalo"
+    ]
   }
 ]

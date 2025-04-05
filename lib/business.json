@@ -203,5 +203,37 @@
       "Soda",
       "Water"
     ]
+  },
+  {
+    "business": "Media",
+    "specifications": [
+      "Radio",
+      "Television",
+      "Blog",
+      "YouTube Channel",
+      "Newspaper",
+      "Magazine",
+      "Social Media",
+      "Podcast",
+      "Online News",
+      "Online Magazine"
+    ]
+  },
+  {
+    "business": "Drinks",
+    "specifications": [
+      "Bar",
+      "Winery",
+      "Soft Drinks",
+      "Juice",
+      "Water",
+      "Energy Drinks",
+      "Cocktails",
+      "Mocktails",
+      "Smoothies",
+      "Milkshakes",
+      "Coffee",
+      "Tea"
+    ]
   }
 ]
