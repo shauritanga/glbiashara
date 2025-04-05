@@ -7,11 +7,22 @@ import {
   publicRoutes,
 } from "./routes";
 
+export function isPublicRoute(pathname: string): boolean {
+  console.log("Checking public route:", pathname);
+  return publicRoutes.some(
+    (route) =>
+      route === pathname ||
+      (route === "/clubs" && pathname.startsWith("/clubs")) ||
+      (route === "/schools" && pathname.startsWith("/schools")) ||
+      (route === "/business" && pathname.startsWith("/business"))
+  );
+}
+
 export async function middleware(request: NextRequest) {
   const { nextUrl } = request;
 
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrrefix);
-  const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
+  const publicRoute = isPublicRoute(nextUrl.pathname);
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
 
   if (isApiAuthRoute) {
@@ -27,17 +38,12 @@ export async function middleware(request: NextRequest) {
 
   if (isAuthRoute) {
     if (isLoggedIn) {
-      console.log(
-        "Redirecting to default login redirect:",
-        DEFAULT_LOGIN_REDIRECT
-      );
       return NextResponse.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
     }
     return NextResponse.next();
   }
 
-  if (!isLoggedIn && !isPublicRoute) {
-    console.log("Redirecting to login page");
+  if (!isLoggedIn && !publicRoute) {
     return NextResponse.redirect(new URL("/login", nextUrl));
   }
 

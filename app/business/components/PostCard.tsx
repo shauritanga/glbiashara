@@ -1,6 +1,9 @@
 "use client";
 import { IPost } from "@/models/Post";
 
+import { useRouter } from "next/navigation"; // For App Router
+import { useState } from "react";
+
 interface PostCardProps {
   post: IPost & {
     user: {
@@ -13,6 +16,25 @@ interface PostCardProps {
 }
 
 export default function PostCard({ post }: PostCardProps) {
+  const router = useRouter(); // Get router instance
+  const [copied, setCopied] = useState(false);
+
+  // Construct the full URL dynamically
+  const currentUrl = typeof window !== "undefined" ? window.location.href : "";
+
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(currentUrl); // Copy the URL to clipboard
+      setCopied(true);
+      alert("Link copied to clipboard!"); // Show alert
+      // Optionally, you can use a toast notification instead of alert
+      // toast.success("Link copied to clipboard!");
+      setTimeout(() => setCopied(false), 2000); // Reset "copied" state after 2 seconds
+    } catch (err) {
+      console.error("Failed to copy: ", err);
+    }
+  };
+
   const formatDate = (date: Date) => {
     return new Date(date).toLocaleDateString("en-US", {
       year: "numeric",
@@ -22,7 +44,10 @@ export default function PostCard({ post }: PostCardProps) {
   };
 
   return (
-    <div className="w-full md:max-w-[320px] flex flex-col bg-white shadow-lg rounded-xl p-4 mb-4 hover:shadow-xl transition-shadow duration-300">
+    <div
+      onClick={copyToClipboard}
+      className="w-full md:max-w-[320px]  flex flex-col bg-white shadow-lg rounded-xl p-4 mb-4 hover:shadow-xl transition-shadow duration-300"
+    >
       {/* User Info Header */}
       <div className="flex items-center justify-between gap-3 mb-4">
         <div className="flex gap-2">
@@ -45,18 +70,18 @@ export default function PostCard({ post }: PostCardProps) {
 
       {/* Media Display */}
       {post.mediaUrl && (
-        <div className="mt-4">
+        <div className="mt-4 h-40 w-full rounded-lg overflow-hidden">
           {post.mediaType === "image" ? (
             <img
               src={post.mediaUrl}
               alt={post.title}
-              className="w-full  min-h-48 rounded-lg object-cover shadow-md"
+              className="w-full  rounded-lg object-cover shadow-md"
             />
           ) : post.mediaType === "video" ? (
             <video
               src={post.mediaUrl}
               controls
-              className="w-full min-h-48 rounded-lg object-cover shadow-md"
+              className="w-full  rounded-lg object-cover shadow-md"
             >
               Your browser does not support the video tag.
             </video>

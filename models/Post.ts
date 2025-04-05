@@ -13,6 +13,7 @@ export interface IPost extends Document {
   mediaUrl: string;
   mediaType: string;
   user: mongoose.Schema.Types.ObjectId;
+  isGlobal: boolean;
   createdAt: Date;
 }
 
@@ -27,6 +28,7 @@ const postSchema = new Schema<IPost>(
     ward: { type: String, required: true },
     street: { type: String, required: true },
     mediaUrl: { type: String },
+    isGlobal: { type: Boolean, default: false },
     mediaType: { type: String },
     user: { type: Schema.Types.ObjectId, ref: "User", required: true },
   },

@@ -48,6 +48,9 @@ export async function createPost(
       { resource_type: "auto" }
     );
 
+    if (category === "Media") {
+    }
+
     const postResult = new Post({
       title,
       description,
@@ -56,6 +59,7 @@ export async function createPost(
       ward,
       street,
       category,
+      isGlobal: category === "Media" ? true : false,
       specific,
       mediaUrl: result.secure_url,
       mediaType: file.type.startsWith("image/") ? "image" : "video",

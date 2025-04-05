@@ -31,13 +31,16 @@ export default function PostList({ posts }: PostListProps) {
   );
 
   const filteredPosts = useMemo(() => {
-    return posts.filter(
-      (post) =>
+    return posts.filter((post) => {
+      if (post.isGlobal) return true;
+
+      return (
         (!region || post.region === region) &&
         (!district || post.district === district) &&
         (!ward || post.ward === ward) &&
         (!street || post.street === street)
-    );
+      );
+    });
   }, [posts, region, district, ward, street]);
 
   return (
