@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import getClub from "@/actions/getClub";
 import getPagePosts from "@/actions/getPagePosts";
-import ClubFeed from "@/components/ClubFeed";
 import { getPosts } from "@/actions/getPosts";
 import { IPost } from "@/models/Post";
+import ClubFeed from "../compnonents/ClubFeed";
 
 export const dynamic = "force-dynamic";
 
@@ -14,111 +14,118 @@ export default async function FootballClubPage({
   params: Promise<{ id: string }>;
 }) {
   const id = (await params).id;
-
-  // Fetch club data (this is async and should be awaited)
   const club = await getClub(id).catch(() => null);
   const posts = await getPagePosts(id).catch(() => []);
   const business = await getPosts();
   const uniqueCategories = Array.from(
     new Set(business.map((item: IPost) => item.category))
-  ) as String[];
+  ) as string[];
 
-  console.log({ uniqueCategories });
-
-  // Handle case where club is not found
   if (!club) {
-    return <div className="text-center mt-10 text-red-500">Club not found</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-red-500 text-xl font-medium">Club not found</p>
+      </div>
+    );
   }
 
-  // Check if the club name includes specific keywords
   const includesLocals = ["simba", "yanga"].some((word) =>
     club.name.toLowerCase().includes(word.toLowerCase())
   );
 
   return (
-    <div className="container mx-auto min-h-screen grid grid-flow-col grid-cols-12">
-      {/* Left Sidebar */}
-      <div className="col-span-3 p-2">
-        <div className="flex items-center gap-4">
-          <Image
-            src={"/" + club.name.split(" ")[0].toLowerCase() + ".png"} // Fallback to a default image if logo is missing
-            alt={`${club.name} logo`}
-            width={45}
-            height={45}
-            className="rounded-full" // Optional: Add styling for the logo
-          />
-          <h3 className="text-2xl font-semibold">{club.name}</h3>
-        </div>
-        <p className="text-gray-600 mt-2">{club.country}</p>
-      </div>
-
-      {/* Main Content */}
-      <div className="col-span-6 m-3">
-        {/* Placeholder for ClubFeed component */}
-        <ClubFeed posts={posts} />
-      </div>
-
-      {/* Right Sidebar */}
-      <div className="col-span-3 p-2">
-        {/* Business Opportunities */}
-        <div className="mt-3 flex flex-col p-2">
-          <h5 className="text-gray-800 mb-2">Business Opportunities</h5>
-          <div className="flex flex-wrap gap-2 rounded border p-2">
-            {uniqueCategories.map((item, index) => (
-              <Link
-                key={index.toString()}
-                href={`/business?type=${item}`}
-                className="px-2 py-1 bg-gray-100 text-gray-600 text-sm rounded-full"
-              >
-                {item.toLowerCase()}
-              </Link>
-            ))}
-          </div>
-        </div>
-        {/* Health Care Section */}
-        <div className="flex flex-col p-2">
-          <h5 className="text-gray-800 mb-2 bg-gray-200 p-1 rounded">
-            Health care
-          </h5>
-          <Link
-            href="/health/kairuki"
-            className="text-blue-500 hover:underline"
-          >
-            Kairuki Institute
-          </Link>
-        </div>
-        <div className="h-[230px] border rounded shadow-md pb-3"></div>
-
-        {/* Conditional Rendering for Sponsors or Tourism */}
-        {includesLocals ? (
-          <>
-            <div className="flex flex-col p-2 mt-9">
-              <h5 className="text-gray-800 mb-2">NBC Official Sponsor</h5>
-            </div>
-            <div className="h-[230px] border rounded shadow-md pb-3">
-              {/* Placeholder for FullHeightSlider component */}
-              {/* <FullHeightSlider linkTo={true} images={nbcs} /> */}
-            </div>
-          </>
-        ) : (
-          <>
-            <div className="flex flex-col p-2 mt-9">
-              <h5 className="text-gray-800 mb-2">Tourism & Tourist Sites</h5>
-            </div>
-            <Link href="/tourism/zanzibar">
-              <div className="h-[230px] border rounded shadow-md pb-3">
-                {/* Placeholder for FullHeightSlider component */}
-                {/* <FullHeightSlider linkTo={false} images={images} /> */}
+    <div className="min-h-screen bg-gray-50">
+      <div className="container mx-auto px-4 py-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+          {/* Left Sidebar */}
+          <aside className="md:col-span-3">
+            <div className="bg-white rounded-lg shadow-sm p-4 sticky top-6">
+              <div className="flex items-center gap-4">
+                <Image
+                  src={`/${club.name.split(" ")[0].toLowerCase()}.png`}
+                  alt={`${club.name} logo`}
+                  width={60}
+                  height={60}
+                  className="rounded-full object-cover"
+                />
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-800">
+                    {club.name}
+                  </h3>
+                  <p className="text-gray-600">{club.country}</p>
+                </div>
               </div>
-            </Link>
-          </>
-        )}
+            </div>
+          </aside>
 
-        {/* Sports & Talents Section */}
-        <div className="flex flex-col p-2 mt-9">
-          <h5 className="text-gray-800 mb-2">Sports & Talents</h5>
+          {/* Main Content */}
+          <main className="md:col-span-6">
+            <div className="bg-white rounded-lg shadow-sm p-4">
+              <ClubFeed posts={posts} />
+            </div>
+          </main>
+
+          {/* Right Sidebar */}
+          <aside className="md:col-span-3 space-y-6">
+            {/* Business Opportunities */}
+            <div className="bg-white rounded-lg shadow-sm p-4">
+              <h5 className="text-lg font-semibold text-gray-800 mb-3">
+                Business Opportunities
+              </h5>
+              <div className="flex flex-wrap gap-2">
+                {uniqueCategories.map((item, index) => (
+                  <Link
+                    key={index}
+                    href={`/business?type=${item}`}
+                    className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200 transition-colors"
+                  >
+                    {item.toLowerCase()}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Health Care */}
+            <div className="bg-white rounded-lg shadow-sm p-4">
+              <h5 className="text-lg font-semibold text-gray-800 mb-3">
+                Health Care
+              </h5>
+              <Link
+                href="/health/kairuki"
+                className="text-blue-600 hover:text-blue-800 transition-colors"
+              >
+                Kairuki Institute
+              </Link>
+            </div>
+
+            {/* Conditional Section */}
+            {includesLocals ? (
+              <div className="bg-white rounded-lg shadow-sm p-4">
+                <h5 className="text-lg font-semibold text-gray-800 mb-3">
+                  NBC Official Sponsor
+                </h5>
+                <div className="h-56 bg-gray-100 rounded-md" />
+              </div>
+            ) : (
+              <div className="bg-white rounded-lg shadow-sm p-4">
+                <h5 className="text-lg font-semibold text-gray-800 mb-3">
+                  Tourism & Tourist Sites
+                </h5>
+                <Link href="/tourism/zanzibar">
+                  <div className="h-56 bg-gray-100 rounded-md hover:opacity-90 transition-opacity" />
+                </Link>
+              </div>
+            )}
+
+            {/* Sports & Talents */}
+            <div className="bg-white rounded-lg shadow-sm p-4">
+              <h5 className="text-lg font-semibold text-gray-800 mb-3">
+                Sports & Talents
+              </h5>
+              <div className="h-56 bg-gray-100 rounded-md" />
+            </div>
+          </aside>
         </div>
-        <div className="h-[230px] border rounded shadow-md pb-3"></div>
       </div>
     </div>
   );

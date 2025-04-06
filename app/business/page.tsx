@@ -32,7 +32,7 @@ export default async function BusinessOpportunities({
   }
 
   return (
-    <div className="p-12">
+    <div className="p-1">
       <PostList posts={posts} />
     </div>
   );
