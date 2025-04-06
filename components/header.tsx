@@ -82,7 +82,7 @@ export function Header({ session }: { session: Session }) {
             type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            <Menu className="h-6 w-6 text-gray-600 mr-3" />
+            <Menu className="h-6 w-6 text-gray-600" />
           </button>
         </div>
       </div>
