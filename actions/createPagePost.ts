@@ -26,8 +26,6 @@ export async function createPagePost(pageId: string, formData: FormData) {
     { resource_type: "auto" }
   );
 
-  console.log({ result });
-
   try {
     const newPost = new PagePost({
       pageId,

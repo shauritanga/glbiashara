@@ -1,5 +1,6 @@
 "use client";
 import { IPost } from "@/models/Post";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FiCopy } from "react-icons/fi"; // Assuming react-icons is installed
@@ -7,9 +8,10 @@ import { FiCopy } from "react-icons/fi"; // Assuming react-icons is installed
 interface PostCardProps {
   post: IPost & {
     user: {
+      _id: string;
       name: string;
       phone: string;
-      avatarUrl?: string;
+      image?: string;
       createdAt: Date;
     };
   };
@@ -46,13 +48,15 @@ export default function PostCard({ post }: PostCardProps) {
       <div className="flex items-center justify-between p-4 border-b border-gray-100">
         <div className="flex items-center gap-3">
           <img
-            src={post.user.avatarUrl || "/default-avatar.png"}
+            src={post.user.image || "/default-avatar.png"}
             alt={`${post.user.name}'s avatar`}
             className="w-10 h-10 rounded-full object-cover border-2 border-gray-200"
           />
           <div>
             <h4 className="font-semibold text-gray-800 text-sm sm:text-base">
-              {post.user.name.split(" ")[0]}
+              <Link href={`/profile/${post.user._id}`}>
+                {post.user.name.split(" ")[0]}
+              </Link>
             </h4>
             <p className="text-xs text-gray-500 hidden sm:block">
               {post.user.phone}

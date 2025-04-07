@@ -24,7 +24,6 @@ export async function createPost(
     if (!session || !session.user || !session.user.id) {
       return { success: false, message: "Unauthorized" };
     }
-    console.log({ formData });
 
     const title = formData.get("title") as string;
     const description = formData.get("description") as string;

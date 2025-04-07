@@ -235,5 +235,90 @@
       "Coffee",
       "Tea"
     ]
+  },
+  {
+    "business": "Professionsal Services",
+    "specifications": [
+      "Accountants",
+      "Architects",
+      "Engineers",
+      "Consultants",
+      "Teachers",
+      "Tutors",
+      "Coaches",
+      "Trainers",
+      "Counselors",
+      "Lawyers",
+      "Doctors",
+      "Dentists",
+      "Therapists",
+      "Psychologists",
+      "Chiropractors",
+      "Veterinarians",
+      "Financial Advisors",
+      "Insurance Agents",
+      "software developers",
+      "Web Developers",
+      "IT Consultants",
+      "Data Analysts",
+      "Market Researchers",
+      "Business Analysts",
+      "Project Managers",
+      "Real Estate Agents",
+      "Marketing Consultants",
+      "Public Relations Specialists",
+      "Graphic Designers",
+      "Web Designers",
+      "Photographers",
+      "Videographers",
+      "Event Planners",
+      "Interior Designers",
+      "Landscape Architects",
+      "Personal Trainers",
+      "Nutritionists",
+      "Life Coaches",
+      "Career Coaches",
+      "Business Coaches",
+      "Social Media Managers",
+      "Content Writers",
+      "SEO Specialists",
+      "Copywriters"
+    ]
+  },
+  {
+    "business": "Retail",
+    "specifications": [
+      "Clothing Stores",
+      "Electronics Stores",
+      "Grocery Stores",
+      "Furniture Stores",
+      "Jewelry Stores",
+      "Sporting Goods Stores",
+      "Bookstores"
+    ]
+  },
+  {
+    "business": "Transportation and Logistics",
+    "specifications": [
+      "Shipping and Freight Services",
+      "Warehousing and Storage Services",
+      "Courier and Delivery Services"
+    ]
+  },
+  {
+    "business": "Telecommunications",
+    "specifications": [
+      "Mobile Network Providers",
+      "Internet Service Providers (ISPs)",
+      "Television and Radio Broadcasting"
+    ]
+  },
+  {
+    "business": "Travel and Tourism",
+    "specifications": [
+      "Travel Agencies",
+      "Tour Operators",
+      "Hotels and Lodging Services"
+    ]
   }
 ]
