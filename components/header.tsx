@@ -40,6 +40,12 @@ export function Header({ session }: { session: Session }) {
             Home
           </Link>
           <Link
+            href="/professions"
+            className="text-gray-600 hover:text-gray-800 py-2"
+          >
+            Professions
+          </Link>
+          <Link
             href="/clubs"
             className="text-gray-600 hover:text-gray-800 transition-colors duration-200"
           >
@@ -97,6 +103,12 @@ export function Header({ session }: { session: Session }) {
         <div className="flex flex-col space-y-4">
           <Link href="/" className="text-gray-600 hover:text-gray-800 py-2">
             Home
+          </Link>
+          <Link
+            href="/professions"
+            className="text-gray-600 hover:text-gray-800 py-2"
+          >
+            Professions
           </Link>
           <Link
             href="/clubs"

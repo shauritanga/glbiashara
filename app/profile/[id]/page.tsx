@@ -85,7 +85,9 @@ export default function PortfolioPage() {
             )}
             <div>
               <h1 className="text-4xl font-bold mb-2">{user?.name}</h1>
-              <p className="text-xl mb-4">{user?.profession}</p>
+              <p className="text-xl mb-4 capitalize">
+                {user?.profession.replace("-", " ")}
+              </p>
               <p className="flex items-center gap-2">
                 <FaMapMarkerAlt /> {user?.streetAddress}, {user?.city},{" "}
                 {user?.state}, {user?.country}

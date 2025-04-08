@@ -86,6 +86,20 @@ export async function updateProfilePicture(formData: FormData) {
   }
 }
 
+export async function getUsersWithProfession() {
+  try {
+    await dbConnect();
+    const users = await User.find({
+      profession: { $exists: true, $ne: "" },
+    });
+    const userData = JSON.parse(JSON.stringify(users));
+    return userData;
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    return { error: "Failed to fetch users" };
+  }
+}
+
 export async function getUserById(id: string) {
   try {
     await dbConnect();
