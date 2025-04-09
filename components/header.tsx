@@ -52,6 +52,12 @@ export function Header({ session }: { session: Session }) {
             Clubs
           </Link>
           <Link
+            href="/companies"
+            className="text-gray-600 hover:text-gray-800 transition-colors duration-200"
+          >
+            Companies
+          </Link>
+          <Link
             href="/schools"
             className="text-gray-600 hover:text-gray-800 transition-colors duration-200"
           >
@@ -115,6 +121,12 @@ export function Header({ session }: { session: Session }) {
             className="text-gray-600 hover:text-gray-800 py-2"
           >
             Clubs
+          </Link>
+          <Link
+            href="/companies"
+            className="text-gray-600 hover:text-gray-800 transition-colors duration-200"
+          >
+            Companies
           </Link>
           <Link
             href="/schools"

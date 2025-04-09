@@ -20,10 +20,8 @@ import {
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 import { createPage } from "@/actions/createPage";
-import { useSession } from "next-auth/react";
 
 export default function CreatePageModal() {
-  const { data } = useSession();
   const [isOpen, setIsOpen] = useState(false);
   const [isCreating, setIsCreating] = useState(false);
   const [formData, setFormData] = useState({
@@ -32,8 +30,9 @@ export default function CreatePageModal() {
     type: "",
     country: "",
     district: "",
-    createdBy: data?.user?.id,
   });
+
+  console.log(formData);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -60,7 +59,6 @@ export default function CreatePageModal() {
           type: "",
           country: "",
           district: "",
-          createdBy: "",
         });
         setIsOpen(false);
         // TODO: Show success message or update UI
@@ -114,6 +112,7 @@ export default function CreatePageModal() {
               <SelectContent>
                 <SelectItem value="school">School</SelectItem>
                 <SelectItem value="club">Club</SelectItem>
+                <SelectItem value="company">Company</SelectItem>
               </SelectContent>
             </Select>
           </div>
