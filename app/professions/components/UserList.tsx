@@ -78,7 +78,7 @@ export default function UserList({ initialUsers }: { initialUsers: IUser[] }) {
           {filteredUsers.map((user) => (
             <Link
               key={user._id}
-              href={`/portfolio/${user._id}`}
+              href={`/profile/${user._id}`}
               className="group block bg-white rounded-lg shadow-md hover:shadow-xl hover:border-blue-200 border border-transparent transition-all duration-300 p-6"
             >
               <div className="flex flex-col items-center">
