@@ -23,30 +23,33 @@ export function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="py-16">
+    <section id="testimonials" className="py-16 bg-blue-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">
+        <h2 className="text-3xl font-bold text-center text-blue-800 mb-8">
           What Our Clients Say
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-md">
+            <div
+              key={index}
+              className="bg-white p-6 rounded-lg shadow-md border border-blue-200 hover:shadow-lg hover:border-blue-300 transition-all duration-300"
+            >
               <div className="flex items-center mb-4">
                 <Image
-                  src={testimonial.avatar || "/placeholder.svg"}
+                  src={testimonial.avatar || "/default-avatar.png"}
                   alt={testimonial.name}
                   width={50}
                   height={50}
-                  className="rounded-full mr-4"
+                  className="rounded-full mr-4 border-2 border-blue-300"
                 />
                 <div>
-                  <h3 className="font-semibold">{testimonial.name}</h3>
-                  <p className="text-sm text-gray-600">{testimonial.role}</p>
+                  <h3 className="font-semibold text-blue-800">
+                    {testimonial.name}
+                  </h3>
+                  <p className="text-sm text-blue-600">{testimonial.role}</p>
                 </div>
               </div>
-              <p className="text-gray-700">
-                &ldquo;{testimonial.content}&rdquo;
-              </p>
+              <p className="text-gray-700">“{testimonial.content}”</p>
             </div>
           ))}
         </div>

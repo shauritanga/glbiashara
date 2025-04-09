@@ -5,6 +5,7 @@ import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Button } from "./ui/button";
 
 const images = [
   {
@@ -24,7 +25,7 @@ const images = [
   },
   {
     src: "/4.jpg",
-    alt: "Slide 3",
+    alt: "Slide 4",
     caption: "Explore diverse industries",
   },
 ];
@@ -35,13 +36,28 @@ export function ImageCarousel() {
   const settings = {
     dots: true,
     infinite: true,
-    arrows: true,
-    speed: 500,
+    speed: 300,
     fade: true,
+    arrows: false,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     afterChange: (current: number) => setCurrentSlide(current),
+    // Customize slick dots and arrows for blue branding
+    appendDots: (dots: React.ReactNode[]) => (
+      <div>
+        <ul className="flex justify-center space-x-2">
+          {dots.map((dot, index) => (
+            <li
+              key={index}
+              className={`inline-block w-1 h-1 rounded-full transition-colors ${
+                currentSlide === index ? "bg-blue-600" : "bg-blue-300"
+              }`}
+            ></li>
+          ))}
+        </ul>
+      </div>
+    ),
   };
 
   return (
@@ -55,11 +71,15 @@ export function ImageCarousel() {
               fill
               style={{ objectFit: "cover" }}
             />
+            {/* Optional overlay for better caption readability */}
+            <div className="absolute inset-0 bg-blue-900 bg-opacity-20"></div>
           </div>
         ))}
       </Slider>
-      <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4">
-        <p className="text-center text-xl">{images[currentSlide].caption}</p>
+      <div className="absolute bottom-0 left-0 right-0 bg-blue-800 bg-opacity-75 text-white p-4">
+        <p className="text-center text-xl font-medium text-blue-100">
+          {images[currentSlide].caption}
+        </p>
       </div>
     </div>
   );

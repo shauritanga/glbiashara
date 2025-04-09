@@ -1,4 +1,4 @@
-"use client"; // Mark as client component
+"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -6,7 +6,7 @@ import { useState } from "react";
 import { IUser } from "@/models/User";
 
 export default function UserList({ initialUsers }: { initialUsers: IUser[] }) {
-  const [users] = useState(initialUsers); // Initial users from server
+  const [users] = useState(initialUsers);
   const [searchName, setSearchName] = useState("");
   const [searchProfession, setSearchProfession] = useState("");
   const [searchCity, setSearchCity] = useState("");
@@ -30,29 +30,35 @@ export default function UserList({ initialUsers }: { initialUsers: IUser[] }) {
       {/* Search Form */}
       <form
         className="mb-8 flex flex-col sm:flex-row gap-4 justify-center"
-        onSubmit={(e) => e.preventDefault()} // Prevent form submission
+        onSubmit={(e) => e.preventDefault()}
       >
         <input
           type="text"
           placeholder="Search by name..."
           value={searchName}
           onChange={(e) => setSearchName(e.target.value)}
-          className="px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="px-4 py-2 rounded-md border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-700"
         />
         <input
           type="text"
           placeholder="Search by profession..."
           value={searchProfession}
           onChange={(e) => setSearchProfession(e.target.value)}
-          className="px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="px-4 py-2 rounded-md border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-700"
         />
         <input
           type="text"
           placeholder="Search by city..."
           value={searchCity}
           onChange={(e) => setSearchCity(e.target.value)}
-          className="px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="px-4 py-2 rounded-md border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-700"
         />
+        <button
+          type="submit"
+          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+        >
+          Search
+        </button>
         <button
           type="button"
           onClick={() => {
@@ -60,7 +66,7 @@ export default function UserList({ initialUsers }: { initialUsers: IUser[] }) {
             setSearchProfession("");
             setSearchCity("");
           }}
-          className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition-colors"
+          className="px-4 py-2 bg-blue-200 text-blue-800 rounded-md hover:bg-blue-300 transition-colors"
         >
           Clear
         </button>
@@ -72,8 +78,8 @@ export default function UserList({ initialUsers }: { initialUsers: IUser[] }) {
           {filteredUsers.map((user) => (
             <Link
               key={user._id}
-              href={`/profile/${user._id}`}
-              className="group block bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 p-6"
+              href={`/portfolio/${user._id}`}
+              className="group block bg-white rounded-lg shadow-md hover:shadow-xl hover:border-blue-200 border border-transparent transition-all duration-300 p-6"
             >
               <div className="flex flex-col items-center">
                 <div className="relative w-20 h-20 mb-4">
@@ -81,14 +87,13 @@ export default function UserList({ initialUsers }: { initialUsers: IUser[] }) {
                     src={user.image || "/default-avatar.png"}
                     alt={`${user.name}'s avatar`}
                     fill
-                    className="rounded-full object-cover"
-                    sizes="80px"
+                    className="rounded-full object-cover border-2 border-blue-300 group-hover:border-blue-500 transition-colors"
                   />
                 </div>
-                <h2 className="text-xl font-semibold text-gray-800 group-hover:text-blue-600 transition-colors text-center">
+                <h2 className="text-xl font-semibold text-blue-800 group-hover:text-blue-600 transition-colors text-center">
                   {user.name}
                 </h2>
-                <p className="mt-2 text-lg font-medium text-blue-500 capitalize text-center">
+                <p className="mt-2 text-lg font-medium text-blue-600 capitalize text-center">
                   {user.profession.replace("-", " ")}
                 </p>
                 <p className="mt-1 text-sm text-gray-600 text-center">
@@ -99,7 +104,7 @@ export default function UserList({ initialUsers }: { initialUsers: IUser[] }) {
           ))}
         </div>
       ) : (
-        <p className="text-center text-gray-600 mt-4">
+        <p className="text-center text-blue-600 mt-4">
           No users found matching your search criteria.
         </p>
       )}
