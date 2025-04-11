@@ -1,11 +1,12 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import PagePost, {
+import {
+  PagePost,
   IActionResponse,
   IPostInteraction,
   PostInteraction,
-} from "@/models/PagePost";
+} from "@/models";
 import { auth } from "@/auth";
 
 export async function likePost(

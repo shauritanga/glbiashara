@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { IUser } from "@/models/User";
+import { IUser } from "@/models";
 
 export default function UserList({ initialUsers }: { initialUsers: IUser[] }) {
   const [users] = useState(initialUsers);
@@ -16,7 +16,7 @@ export default function UserList({ initialUsers }: { initialUsers: IUser[] }) {
     const nameMatch = user.name
       .toLowerCase()
       .includes(searchName.toLowerCase());
-    const professionMatch = user.profession
+    const professionMatch = user.profession.name
       .toLowerCase()
       .includes(searchProfession.toLowerCase());
     const cityMatch = user.city
@@ -94,7 +94,7 @@ export default function UserList({ initialUsers }: { initialUsers: IUser[] }) {
                   {user.name}
                 </h2>
                 <p className="mt-2 text-lg font-medium text-blue-600 capitalize text-center">
-                  {user.profession.replace("-", " ")}
+                  {user.profession.name}
                 </p>
                 <p className="mt-1 text-sm text-gray-600 text-center">
                   {user.city}, {user.country}

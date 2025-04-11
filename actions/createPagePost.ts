@@ -1,7 +1,7 @@
 "use server";
 
 import dbConnect from "@/lib/mongodb";
-import PagePost from "@/models/PagePost";
+import { PagePost } from "@/models";
 import cloudinary from "cloudinary";
 
 cloudinary.v2.config({

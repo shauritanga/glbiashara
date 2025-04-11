@@ -9,8 +9,7 @@ import {
   FaEnvelope,
   FaPhone,
 } from "react-icons/fa";
-import { getUser } from "@/actions/getUser";
-import { IUser } from "@/models/User";
+import { IUser } from "@/models";
 import { useParams } from "next/navigation";
 import { getUserById } from "@/actions/user";
 
@@ -58,8 +57,6 @@ export default function PortfolioPage() {
     );
   }
 
-  console.log("user data", user);
-
   if (!user) {
     return (
       <div className="flex justify-center items-center h-screen">
@@ -86,7 +83,7 @@ export default function PortfolioPage() {
             <div>
               <h1 className="text-4xl font-bold mb-2">{user?.name}</h1>
               <p className="text-xl mb-4 capitalize">
-                {user?.profession.replace("-", " ")}
+                {user?.profession.toString()}
               </p>
               <p className="flex items-center gap-2">
                 <FaMapMarkerAlt /> {user?.streetAddress}, {user?.city},{" "}

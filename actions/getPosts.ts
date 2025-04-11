@@ -1,6 +1,6 @@
 "use server";
 import dbConnect from "@/lib/mongodb";
-import Post from "@/models/Post";
+import { Post } from "@/models";
 
 export async function getPosts() {
   await dbConnect();

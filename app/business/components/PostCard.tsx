@@ -1,5 +1,5 @@
 "use client";
-import { IPost } from "@/models/Post";
+import { IPost } from "@/models";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

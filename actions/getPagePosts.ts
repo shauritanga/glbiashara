@@ -1,6 +1,6 @@
 "use server";
 import dbConnect from "@/lib/mongodb";
-import PagePost from "@/models/PagePost";
+import { PagePost } from "@/models";
 
 export default async function getPagePosts(id: string) {
   await dbConnect();

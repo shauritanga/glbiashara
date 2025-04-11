@@ -1,8 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import AddPageDetailsModal from "./AddPageDetailsModal";
 import CreatePagePostModal from "./CreatePagePostModal";
-import dbConnect from "@/lib/mongodb";
-import Page, { IPage } from "@/models/Page";
 import getUserPages from "@/actions/getUserPages";
 
 interface UserPagesProps {

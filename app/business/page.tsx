@@ -1,5 +1,5 @@
 import { getPostByCategory } from "@/actions/posts";
-import { IPost } from "@/models/Post";
+import { IPost } from "@/models";
 import PostList from "./components/PostList";
 
 // Add proper typing for searchParams

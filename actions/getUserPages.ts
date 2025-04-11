@@ -1,5 +1,5 @@
 import dbConnect from "@/lib/mongodb";
-import Page from "@/models/Page";
+import { Page } from "@/models";
 
 export default async function getUserPages(userId: string) {
   await dbConnect();

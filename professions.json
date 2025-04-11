@@ -1,0 +1,75 @@
+[
+  { "name": "Painter", "industries": ["67f92c86cee01bdb14cfcf7e"] },
+  { "name": "Musician", "industries": ["67f92c86cee01bdb14cfcf7e"] },
+  {
+    "name": "Accountant",
+    "industries": ["67f92c68cee01bdb14cfcf7d", "67f92b46cee01bdb14cfcf76"]
+  },
+  { "name": "Actor/Actress", "industries": ["67f92c86cee01bdb14cfcf7e"] },
+  { "name": "Architect", "industries": ["67f92b9ccee01bdb14cfcf79"] },
+  { "name": "Artist", "industries": ["67f92c86cee01bdb14cfcf7e"] },
+  { "name": "Astronomer", "industries": ["67f8f8a7cee01bdb14cfcf5a"] },
+  { "name": "Banker", "industries": ["67f92b46cee01bdb14cfcf76"] },
+  { "name": "Barber", "industries": ["67f92b7ecee01bdb14cfcf78"] },
+  {
+    "name": "Bricklayer",
+    "industries": ["67f92b9ccee01bdb14cfcf79", "67f92b7ecee01bdb14cfcf78"]
+  },
+  { "name": "Bus Driver", "industries": ["67f92b1fcee01bdb14cfcf75"] },
+  { "name": "Butcher", "industries": ["67f92b7ecee01bdb14cfcf78"] },
+  { "name": "Carpenter", "industries": ["67f92b7ecee01bdb14cfcf78"] },
+  { "name": "Chef", "industries": ["67f92addcee01bdb14cfcf74"] },
+  {
+    "name": "Computer Programmer",
+    "industries": [
+      "67f8f8d9cee01bdb14cfcf5b",
+      "67f8f8a7cee01bdb14cfcf5a",
+      "67f92cc4cee01bdb14cfcf80"
+    ]
+  },
+  { "name": "Dentist", "industries": ["67f92b65cee01bdb14cfcf77"] },
+  { "name": "Doctor", "industries": ["67f92b65cee01bdb14cfcf77"] },
+  {
+    "name": "Firefighter",
+    "industries": ["67f92bd1cee01bdb14cfcf7a", "67f92c03cee01bdb14cfcf7b"]
+  },
+  { "name": "Geologist", "industries": ["67f8f820cee01bdb14cfcf54"] },
+  { "name": "Historian", "industries": ["67f8f8a7cee01bdb14cfcf5a"] },
+  { "name": "Kinesiologist", "industries": ["67f92b65cee01bdb14cfcf77"] },
+  { "name": "Lawyer", "industries": ["67f92c68cee01bdb14cfcf7d"] },
+  { "name": "Mechanic", "industries": ["67f92b1fcee01bdb14cfcf75"] },
+  { "name": "Nurse", "industries": ["67f92b65cee01bdb14cfcf77"] },
+  { "name": "Optician", "industries": ["67f92b65cee01bdb14cfcf77"] },
+  { "name": "Optometrist", "industries": ["67f92b65cee01bdb14cfcf77"] },
+  { "name": "Pharmacist", "industries": ["67f92b65cee01bdb14cfcf77"] },
+  { "name": "Realtor", "industries": ["67f92ca7cee01bdb14cfcf7f"] },
+  {
+    "name": "Computer Engineer",
+    "industries": ["67f8f8d9cee01bdb14cfcf5b", "67f92cc4cee01bdb14cfcf80"]
+  },
+  {
+    "name": "Civil Engineer",
+    "industries": ["67f92b9ccee01bdb14cfcf79", "67f8f820cee01bdb14cfcf54"]
+  },
+  { "name": "Petrolium Engineer", "industries": ["67f8f820cee01bdb14cfcf54"] },
+  {
+    "name": "Software Engineer",
+    "industries": ["67f8f8d9cee01bdb14cfcf5b", "67f92cc4cee01bdb14cfcf80"]
+  },
+  {
+    "name": "Mechanical Engineer",
+    "industries": ["67f92c03cee01bdb14cfcf7b", "67f8f872cee01bdb14cfcf57"]
+  },
+  {
+    "name": "Electrical Engineer",
+    "industries": [
+      "67f8f872cee01bdb14cfcf57",
+      "67f92b9ccee01bdb14cfcf79",
+      "67f92c03cee01bdb14cfcf7b",
+      "67f8f8d9cee01bdb14cfcf5b"
+    ]
+  },
+  { "name": "Mining Engineer", "industries": ["67f8f820cee01bdb14cfcf54"] },
+  { "name": "Surgeon", "industries": ["67f92b65cee01bdb14cfcf77"] },
+  { "name": "X-ray Technician", "industries": ["67f92b65cee01bdb14cfcf77"] }
+]

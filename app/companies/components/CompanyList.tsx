@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { IPage } from "@/models/Page";
+import { IPage } from "@/models";
 
 export default function CompanyList({
   initialCompanies,

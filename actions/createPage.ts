@@ -2,11 +2,13 @@
 
 import { auth } from "@/auth";
 import dbConnect from "@/lib/mongodb";
-import Page from "@/models/Page";
+import { Page } from "@/models";
 
-export async function createPage(formData: FormData) {
+export async function createPage(formData: any) {
   const session = await auth();
   await dbConnect();
+
+  console.log(formData);
 
   const data = {
     ...formData,

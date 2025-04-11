@@ -1,6 +1,6 @@
 "use server"; // Ensure this is at the top if using Server Actions
 import dbConnect from "@/lib/mongodb";
-import Page from "@/models/Page";
+import { Page } from "@/models";
 
 export default async function getClub(id: string) {
   try {

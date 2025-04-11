@@ -1,7 +1,7 @@
 "use server";
 
 import dbConnect from "@/lib/mongodb";
-import Page from "@/models/Page";
+import { Page } from "@/models";
 
 export async function addPageDetails(pageId: string, details: string) {
   await dbConnect();

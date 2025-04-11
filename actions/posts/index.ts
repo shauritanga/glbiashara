@@ -1,6 +1,6 @@
 "use server";
 
-import Post from "@/models/Post";
+import { Post } from "@/models";
 
 export async function getPostByCategory(category: string) {
   try {

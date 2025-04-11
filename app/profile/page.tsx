@@ -1,20 +1,19 @@
 import { Suspense } from "react";
 import Image from "next/image";
 import PostList from "@/components/post-list";
-import CreatePageModal from "@/components/create-page";
-import EditProfileModal from "@/components/edit-profile";
 import { getUser } from "@/actions/getUser";
 import { auth } from "@/auth";
 import Link from "next/link";
 import UserPages from "./components/UserPages";
-import getClubs from "@/actions/getClubs";
 import { updateProfilePicture } from "@/actions/user";
 import { revalidatePath } from "next/cache";
+import CreatePageModal from "./components/CreatePageForm";
+import getIndustries from "@/actions/getIndustries";
 
 export default async function ProfilePage() {
   const session = await auth();
   const profile = await getUser(session?.user?.email!);
-  const clubs = await getClubs();
+  const industries = await getIndustries();
 
   const refreshProfile = async () => {
     "use server";
@@ -80,8 +79,11 @@ export default async function ProfilePage() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-2 w-full justify-center px-4">
-            <EditProfileModal profile={profile} clubs={clubs} />
-            <CreatePageModal />
+            <Link href="/profile/edit">Edit Profile</Link>
+
+            <CreatePageModal
+              industries={Array.isArray(industries) ? industries : [industries]}
+            />
             <Link
               href="/profile/posts/new"
               className="bg-gray-900 text-white px-4 py-2 rounded hover:bg-gray-800 transition duration-300 text-sm md:text-base text-center w-full sm:w-auto"

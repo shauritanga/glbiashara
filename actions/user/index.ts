@@ -3,7 +3,7 @@
 
 import { auth } from "@/auth";
 import dbConnect from "@/lib/mongodb";
-import User from "@/models/User"; // Adjust path to your User model
+import { User } from "@/models"; // Adjust path to your User model
 import { v2 as cloudinary } from "cloudinary";
 import { revalidatePath } from "next/cache";
 
@@ -90,8 +90,8 @@ export async function getUsersWithProfession() {
   try {
     await dbConnect();
     const users = await User.find({
-      profession: { $exists: true, $ne: "" },
-    });
+      profession: { $exists: true },
+    }).populate("profession");
     const userData = JSON.parse(JSON.stringify(users));
     return userData;
   } catch (error) {

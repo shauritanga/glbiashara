@@ -1,5 +1,5 @@
 "use client";
-import { IPost } from "@/models/Post";
+import { IPost } from "@/models";
 import PostCard from "./PostCard";
 import regions from "@/lib/regions.json";
 import districts from "@/lib/districts.json";

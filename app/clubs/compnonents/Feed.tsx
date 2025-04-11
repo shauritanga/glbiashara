@@ -1,12 +1,11 @@
 import { MoreHorizontal, Copy, ThumbsUp, ThumbsDown } from "lucide-react";
 import Image from "next/image";
 import { formatDistanceToNow } from "date-fns";
-import { IPagePost } from "@/models/PagePost";
+import { IPagePost } from "@/models";
 import { useState, useOptimistic, useTransition, useEffect } from "react";
 import { checkIfInteracted, dislikePost, likePost } from "@/actions/page-post";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-import { set } from "mongoose";
 
 interface PostProps {
   post: IPagePost;

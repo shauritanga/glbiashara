@@ -2,7 +2,7 @@
 
 import cloudinary from "cloudinary";
 import dbConnect from "@/lib/mongodb";
-import Post from "@/models/Post";
+import { Post } from "@/models";
 import { auth } from "@/auth";
 import { ActionResponse } from "@/types";
 import { revalidatePath } from "next/cache";

@@ -3,7 +3,7 @@ import Link from "next/link";
 import getClub from "@/actions/getClub";
 import getPagePosts from "@/actions/getPagePosts";
 import { getPosts } from "@/actions/getPosts";
-import { IPost } from "@/models/Post";
+import { IPost } from "@/models";
 import ClubFeed from "../compnonents/ClubFeed";
 
 export const dynamic = "force-dynamic";

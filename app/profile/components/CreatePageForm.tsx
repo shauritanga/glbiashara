@@ -20,14 +20,20 @@ import {
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 import { createPage } from "@/actions/createPage";
+import { IIndustry } from "@/models";
 
-export default function CreatePageModal() {
+export default function CreatePageModal({
+  industries,
+}: {
+  industries: IIndustry[];
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [isCreating, setIsCreating] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     description: "",
     type: "",
+    industry: "",
     country: "",
     district: "",
   });
@@ -39,12 +45,18 @@ export default function CreatePageModal() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSelectChange = (value: string) => {
+  const handleTypeSelectChange = (value: string) => {
     setFormData((prev) => ({ ...prev, type: value }));
+  };
+
+  const handleIndustrySelectChange = (value: string) => {
+    setFormData((prev) => ({ ...prev, industry: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    console.log({ formData });
     setIsCreating(true);
 
     try {
@@ -55,6 +67,7 @@ export default function CreatePageModal() {
           name: "",
           description: "",
           type: "",
+          industry: "",
           country: "",
           district: "",
         });
@@ -103,7 +116,10 @@ export default function CreatePageModal() {
           </div>
           <div className="space-y-2">
             <Label htmlFor="type">Page Type</Label>
-            <Select onValueChange={handleSelectChange} value={formData.type}>
+            <Select
+              onValueChange={handleTypeSelectChange}
+              value={formData.type}
+            >
               <SelectTrigger>
                 <SelectValue placeholder="Select page type" />
               </SelectTrigger>
@@ -114,6 +130,29 @@ export default function CreatePageModal() {
               </SelectContent>
             </Select>
           </div>
+          {formData.type === "company" ? (
+            <div className="space-y-2">
+              <Label htmlFor="industry">Company Sector</Label>
+              <Select
+                onValueChange={handleIndustrySelectChange}
+                value={formData.industry}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Select page type" />
+                </SelectTrigger>
+                <SelectContent>
+                  {industries.map((industry) => (
+                    <SelectItem
+                      value={industry._id.toString()}
+                      key={industry._id.toString()}
+                    >
+                      {industry.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          ) : null}
           <div className="space-y-2">
             <Label htmlFor="country">Country</Label>
             <Input

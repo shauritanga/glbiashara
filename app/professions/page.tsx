@@ -3,7 +3,6 @@ import UserList from "./components/UserList";
 
 export default async function ProfessionsPage() {
   const users = await getUsersWithProfession();
-  console.log("users", users);
 
   return (
     <div className="min-h-screen bg-gray-100 py-10">
