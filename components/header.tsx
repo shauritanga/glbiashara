@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { auth } from "../auth";
 import UserAvatar from "./user-avatar";
 import { Menu } from "lucide-react"; // Add this import for hamburger icon
-import { useState } from "react"; // For mobile menu toggle
+import { useEffect, useState } from "react"; // For mobile menu toggle
+import { getUser } from "@/actions/getUser";
 
 interface Session {
   user?: {
@@ -16,9 +16,19 @@ interface Session {
 
 export function Header({ session }: { session: Session }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [imageUrl, setImageUrl] = useState("");
 
   // Note: Since this is a server component, we'll need to make the mobile menu client-side
   // For full functionality, you might want to split this into a client component
+  useEffect(() => {
+    const getUserProfile = async () => {
+      if (session.user?.email) {
+        const profile = await getUser(session.user.email);
+        setImageUrl(profile.image ?? "/default-avatar.png");
+      }
+    };
+    getUserProfile();
+  }, [session]);
 
   return (
     <header className="bg-white shadow-md fixed w-full top-0 z-50">
@@ -71,7 +81,7 @@ export function Header({ session }: { session: Session }) {
             <UserAvatar
               name={session.user.name ?? ""}
               email={session?.user?.email ?? ""}
-              imageUrl={session?.user?.image ?? ""}
+              imageUrl={imageUrl}
             />
           ) : (
             <div className="flex items-center space-x-2">
@@ -132,7 +142,7 @@ export function Header({ session }: { session: Session }) {
             href="/schools"
             className="text-gray-600 hover:text-gray-800 py-2"
           >
-            Schools
+            Schools0
           </Link>
           {!session?.user && (
             <Button variant="outline" asChild className="w-full">

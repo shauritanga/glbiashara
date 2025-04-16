@@ -206,6 +206,7 @@ export interface IUser extends Document {
   streetAddress: string;
   state: string;
   country: string;
+  businessName: string;
   profession: { name: string; industries: [string] };
   business: string;
   projects?: [
@@ -244,6 +245,7 @@ const userSchema = new Schema<IUser>({
   city: { type: String },
   state: { type: String },
   country: { type: String },
+  businessName: { type: String },
   profession: { type: Schema.Types.ObjectId, ref: "Profession" },
   image: { type: String },
   projects: [
