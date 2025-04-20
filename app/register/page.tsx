@@ -103,6 +103,7 @@ export default function Home() {
   const [isComplete, setIsComplete] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
   const [success, setSuccess] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const router = useRouter();
 
   const getCurrentQuestions = (): Question[] => {
@@ -157,7 +158,9 @@ export default function Home() {
     }
 
     try {
+      setIsLoading(true);
       const result = await createUser(formData);
+      setIsLoading(false);
       if (result.success) {
         setSuccess(true);
         toast.success(
@@ -222,7 +225,7 @@ export default function Home() {
               disabled={success}
               className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 disabled:bg-gray-400"
             >
-              Confirm Registration
+              {isLoading ? "submiting..." : "Confirm Registration"}
             </button>
           </div>
         ) : (

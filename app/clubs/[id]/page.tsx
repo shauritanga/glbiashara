@@ -5,6 +5,7 @@ import getPagePosts from "@/actions/getPagePosts";
 import { getPosts } from "@/actions/getPosts";
 import { IPost } from "@/models";
 import ClubFeed from "../compnonents/ClubFeed";
+import TourismSlider from "@/components/tourism-carousel";
 
 export const dynamic = "force-dynamic";
 
@@ -84,7 +85,6 @@ export default async function FootballClubPage({
                 ))}
               </div>
             </div>
-
             {/* Health Care */}
             <div className="bg-white rounded-lg shadow-sm p-4">
               <h5 className="text-lg font-semibold text-gray-800 mb-3">
@@ -97,32 +97,41 @@ export default async function FootballClubPage({
                 Kairuki Institute
               </Link>
             </div>
-
             {/* Conditional Section */}
-            {includesLocals ? (
+            {/* {includesLocals ? (
               <div className="bg-white rounded-lg shadow-sm p-4">
                 <h5 className="text-lg font-semibold text-gray-800 mb-3">
                   NBC Official Sponsor
                 </h5>
                 <div className="h-56 bg-gray-100 rounded-md" />
               </div>
-            ) : (
-              <div className="bg-white rounded-lg shadow-sm p-4">
-                <h5 className="text-lg font-semibold text-gray-800 mb-3">
-                  Tourism & Tourist Sites
-                </h5>
-                <Link href="/tourism/zanzibar">
-                  <div className="h-56 bg-gray-100 rounded-md hover:opacity-90 transition-opacity" />
-                </Link>
-              </div>
-            )}
+            ) :  */}
 
+            <div className="bg-white rounded-lg shadow-sm p-4">
+              <h5 className="text-lg font-semibold text-gray-800 mb-3">
+                Tourism & Tourist Sites
+              </h5>
+              <Link href="/tourism/zanzibar">
+                <div className="h-56 bg-gray-100 rounded-md hover:opacity-90 transition-opacity">
+                  <TourismSlider />
+                </div>
+              </Link>
+            </div>
+            {/* } */}
             {/* Sports & Talents */}
             <div className="bg-white rounded-lg shadow-sm p-4">
               <h5 className="text-lg font-semibold text-gray-800 mb-3">
                 Sports & Talents
               </h5>
-              <div className="h-56 bg-gray-100 rounded-md" />
+              <div className="h-56 bg-gray-100 rounded-md">
+                <video
+                  className="w-full h-56 rounded-md object-cover"
+                  controls
+                  src="/videos/mikocheni.mp4"
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             </div>
           </aside>
         </div>
