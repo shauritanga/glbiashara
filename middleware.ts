@@ -14,7 +14,8 @@ export function isPublicRoute(pathname: string): boolean {
       route === pathname ||
       (route === "/clubs" && pathname.startsWith("/clubs")) ||
       (route === "/schools" && pathname.startsWith("/schools")) ||
-      (route === "/business" && pathname.startsWith("/business"))
+      (route === "/business" && pathname.startsWith("/business")) ||
+      (route === "/tourism" && pathname.startsWith("/tourism"))
   );
 }
 
