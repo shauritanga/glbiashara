@@ -142,7 +142,7 @@ export function Header({ session }: { session: Session }) {
             href="/schools"
             className="text-gray-600 hover:text-gray-800 py-2"
           >
-            Schools0
+            Schools
           </Link>
           {!session?.user && (
             <Button variant="outline" asChild className="w-full">
