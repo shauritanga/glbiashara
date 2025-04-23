@@ -6,6 +6,9 @@ import { getPosts } from "@/actions/getPosts";
 import { IPost } from "@/models";
 import ClubFeed from "../compnonents/ClubFeed";
 import TourismSlider from "@/components/tourism-carousel";
+import NMBSlider from "@/components/nmb-carousel";
+import App from "next/app";
+import AppDownloadButton from "../compnonents/member";
 
 export const dynamic = "force-dynamic";
 
@@ -40,8 +43,8 @@ export default async function FootballClubPage({
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           {/* Left Sidebar */}
           <aside className="md:col-span-3">
-            <div className="bg-white rounded-lg shadow-sm p-4 sticky top-6">
-              <div className="flex items-center gap-4">
+            <div className="bg-white rounded-lg shadow-sm p-4 sticky top-6 ">
+              <div className="flex items-center gap-4 mb-2">
                 <Image
                   src={`/${club.name.split(" ")[0].toLowerCase()}.png`}
                   alt={`${club.name} logo`}
@@ -56,6 +59,7 @@ export default async function FootballClubPage({
                   <p className="text-gray-600">{club.country}</p>
                 </div>
               </div>
+              <AppDownloadButton />
             </div>
           </aside>
 
@@ -94,18 +98,18 @@ export default async function FootballClubPage({
                 href="/health/kairuki"
                 className="text-blue-600 hover:text-blue-800 transition-colors"
               >
-                Kairuki Institute
+                Kairuki Instituteee
               </Link>
             </div>
-            {/* Conditional Section */}
-            {/* {includesLocals ? (
-              <div className="bg-white rounded-lg shadow-sm p-4">
-                <h5 className="text-lg font-semibold text-gray-800 mb-3">
-                  NBC Official Sponsor
-                </h5>
-                <div className="h-56 bg-gray-100 rounded-md" />
+
+            <div className="bg-white rounded-lg shadow-sm p-4">
+              <h5 className="text-lg font-semibold text-gray-800 mb-3">
+                NMB Bank
+              </h5>
+              <div className="h-56 bg-gray-100 rounded-md hover:opacity-90 transition-opacity">
+                <NMBSlider />
               </div>
-            ) :  */}
+            </div>
 
             <div className="bg-white rounded-lg shadow-sm p-4">
               <h5 className="text-lg font-semibold text-gray-800 mb-3">
