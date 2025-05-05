@@ -9,7 +9,7 @@ import countries from "@/lib/countries.json";
 interface Question {
   id: string;
   text: string;
-  type: "text" | "email" | "select" | "password" | "file";
+  type: "text" | "email" | "select" | "password" | "file" | "tel";
   placeholder?: string;
   options?: string[];
   accept?: string;
@@ -80,6 +80,65 @@ const sellerQuestions: Question[] = [
 ];
 
 const finalQuestion: Question[] = [
+  {
+    id: "club",
+    text: "Which club are you?",
+    type: "select",
+    options: [
+      "Simba SC",
+      "Yanga SC",
+      "Azam FC",
+      "KMC FC",
+      "Chelsea FC",
+      "Manchester United",
+      "Liverpool FC",
+      "Barcelona FC",
+      "Real Madrid",
+      "Bayern Munich",
+      "PSG",
+      "Inter Milan",
+      "AC Milan",
+      "Juventus",
+      "Atletico Madrid",
+      "Borussia Dortmund",
+      "Manchester City",
+      "Tottenham Hotspur",
+      "Arsenal",
+      "Everton",
+      "West Ham United",
+      "Leicester City",
+      "Southampton",
+      "Newcastle United",
+      "Aston Villa",
+      "Crystal Palace",
+      "Mtibwa Sugar",
+      "Coastal Union",
+      "Ruvu Shooting",
+      "Kagera Sugar",
+      "Biashara United",
+      "Dodoma Jiji",
+      "Namungo FC",
+    ],
+    placeholder: "Select your club",
+  },
+  {
+    id: "business",
+    text: "What is your business?",
+    type: "text",
+    placeholder: "Enter your business",
+  },
+  {
+    id: "profession",
+    text: "What is your profession?",
+    type: "text",
+    placeholder: "Enter your profession",
+  },
+  {
+    id: "phone",
+    text: "What is your phone number?",
+    type: "tel",
+    placeholder: "Enter your phone number",
+  },
   {
     id: "password",
     text: "Create your login password",
@@ -152,6 +211,10 @@ export default function Home() {
       formData.append("country", answers.country || "");
       formData.append("city", answers.city || "");
       formData.append("streetAddress", answers.streetAddress || "");
+      formData.append("club", answers.club || "");
+      formData.append("business", answers.business || "");
+      formData.append("profession", answers.profession || "");
+      formData.append("phone", answers.phone || "");
       if (imageFile) {
         formData.append("image", imageFile);
       }

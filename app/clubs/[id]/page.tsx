@@ -7,8 +7,8 @@ import { IPost } from "@/models";
 import ClubFeed from "../compnonents/ClubFeed";
 import TourismSlider from "@/components/tourism-carousel";
 import NMBSlider from "@/components/nmb-carousel";
-import App from "next/app";
 import AppDownloadButton from "../compnonents/member";
+import TotalSlider from "@/components/total_energy";
 
 export const dynamic = "force-dynamic";
 
@@ -101,7 +101,14 @@ export default async function FootballClubPage({
                 Kairuki Instituteee
               </Link>
             </div>
-
+            <div className="bg-white rounded-lg shadow-sm p-4">
+              <h5 className="text-lg font-semibold text-gray-800 mb-3">
+                Total Energy
+              </h5>
+              <div className="h-56 bg-gray-100 rounded-md hover:opacity-90 transition-opacity">
+                <TotalSlider />
+              </div>
+            </div>
             <div className="bg-white rounded-lg shadow-sm p-4">
               <h5 className="text-lg font-semibold text-gray-800 mb-3">
                 NMB Bank
@@ -121,7 +128,6 @@ export default async function FootballClubPage({
                 </div>
               </Link>
             </div>
-            {/* } */}
             {/* Sports & Talents */}
             <div className="bg-white rounded-lg shadow-sm p-4">
               <h5 className="text-lg font-semibold text-gray-800 mb-3">

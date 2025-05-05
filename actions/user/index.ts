@@ -7,7 +7,6 @@ import { User } from "@/models"; // Adjust path to your User model
 import { v2 as cloudinary } from "cloudinary";
 import { revalidatePath } from "next/cache";
 import bcrypt from "bcryptjs";
-import { redirect } from "next/navigation";
 
 // Configure Cloudinary (you should put these in environment variables)
 cloudinary.config({
@@ -140,6 +139,7 @@ export async function createUser(
     const industry = formData.get("industry")?.toString();
     const country = formData.get("country")?.toString();
     const city = formData.get("city")?.toString();
+    const phone = formData.get("phone")?.toString();
     const streetAddress = formData.get("streetAddress")?.toString();
     const image = formData.get("image");
 
@@ -155,8 +155,6 @@ export async function createUser(
     if (existingUser) {
       return { success: false, error: "Email already exists" };
     }
-
-    console.log({ image });
 
     let imageUrl: string | undefined;
     if (role === "Sell") {
@@ -191,6 +189,7 @@ export async function createUser(
       name,
       email,
       role,
+      phone,
       password: hashedPassword,
       ...(role === "Sell" && {
         businessName,

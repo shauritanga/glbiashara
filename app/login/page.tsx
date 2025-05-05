@@ -20,6 +20,7 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -29,12 +30,13 @@ export default function LoginPage() {
     // // For now, we'll just redirect to the home page
     // router.push("/");
     try {
+      setIsLoading(true);
       const result = await signIn("credentials", {
         redirect: false,
         email,
         password,
       });
-
+      setIsLoading(false);
       if (result?.error) {
         setError(result.error);
       } else {
@@ -82,7 +84,7 @@ export default function LoginPage() {
           </CardContent>
           <CardFooter className="flex flex-col space-y-4">
             <Button type="submit" className="w-full">
-              Login
+              {isLoading ? "signing..." : "SignIn"}
             </Button>
             <p className="text-sm text-center text-gray-600">
               Don't have an account?{" "}
