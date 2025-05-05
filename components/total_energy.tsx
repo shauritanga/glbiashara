@@ -17,21 +17,21 @@ export default function TotalSlider() {
       >
         <a href="" target="_blank" rel="noopener noreferrer">
           <img
-            src="/oil.jpg"
+            src="/oil.jpeg"
             alt="Oil station"
             className="w-full h-56 object-cover rounded-md"
           />
         </a>
         <a href="" target="_blank" rel="noopener noreferrer">
           <img
-            src="/gas.jpg"
+            src="/gas.jpeg"
             alt="Gas point"
             className="w-full h-56 object-cover rounded-md"
           />
         </a>
         <a href="" target="_blank" rel="noopener noreferrer">
           <img
-            src="/coverage.jpg"
+            src="/coverage.jpeg"
             alt="general total"
             className="w-full h-56 object-cover rounded-md"
           />
