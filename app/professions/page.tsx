@@ -1,18 +1,19 @@
 import { getUsersWithProfession } from "@/actions/user";
 import UserList from "./components/UserList";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default async function ProfessionsPage() {
   const users = await getUsersWithProfession();
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold text-gray-900 text-center mb-8">
-          Professions
-        </h1>
-        {/* Pass users to the client component */}
-        <UserList initialUsers={users} />
-      </div>
+    <div className="flex flex-col m-6 space-y-4 container mx-auto">
+      <Link href="/">
+        <Button variant="outline" size="sm" className="mb-4">
+          ← Back
+        </Button>
+      </Link>
+      <UserList initialUsers={users} />;
     </div>
   );
 }

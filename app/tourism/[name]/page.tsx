@@ -68,6 +68,12 @@ export default function Tourism() {
       description:
         "A pristine marine park perfect for diving and snorkeling with vibrant coral reefs.",
     },
+    {
+      name: "Gran Melia Arusha",
+      location: "Arusha",
+      image:
+        "https://player.cloudinary.com/embed/?cloud_name=ddeyxzxuu&public_id=VIDEO-2025-05-05-10-35-48_lpjwy8&profile=cld-default",
+    },
   ];
 
   return (
