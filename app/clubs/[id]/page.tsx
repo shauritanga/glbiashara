@@ -59,7 +59,7 @@ export default async function FootballClubPage({
                   <p className="text-gray-600">{club.country}</p>
                 </div>
               </div>
-              <AppDownloadButton />
+              <AppDownloadButton id={id} />
             </div>
           </aside>
 
