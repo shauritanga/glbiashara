@@ -15,6 +15,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import Link from "next/link";
 
 const MATCH_DATE = new Date("2025-05-30T00:00:00");
 
@@ -139,7 +140,14 @@ export default function MembershipPage() {
                       <strong>Tigo Pesa:</strong> 0655 654 321
                     </li>
                     <li>
-                      <strong>Bank:</strong> CRDB Bank - A/C: 0123456789
+                      <strong>Bank:</strong>{" "}
+                      <a
+                        href="https://www.nmbbank.co.tz/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        NMB Bank - A/C: 0123456789
+                      </a>
                     </li>
                   </ul>
                   <p>
