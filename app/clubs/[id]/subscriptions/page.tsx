@@ -134,10 +134,23 @@ export default function MembershipPage() {
                   </p>
                   <ul className="list-disc list-inside">
                     <li>
-                      <strong>Mpesa:</strong> 0767 123 456 (Name: Simba SC)
+                      <a
+                        href="https://www.vodacom.co.tz/mpesa"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <strong>Mpesa:</strong> 0767 123 456 (Name: Simba SC)
+                      </a>
                     </li>
                     <li>
-                      <strong>Tigo Pesa:</strong> 0655 654 321
+                      <a
+                        href="https://yas.co.tz/mixx-by-yas/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <strong>Tigo Pesa:</strong>
+                        0655 654 321
+                      </a>
                     </li>
                     <li>
                       <strong>Bank:</strong>{" "}
