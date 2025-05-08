@@ -9,6 +9,7 @@ import TourismSlider from "@/components/tourism-carousel";
 import NMBSlider from "@/components/nmb-carousel";
 import AppDownloadButton from "../compnonents/member";
 import TotalSlider from "@/components/total_energy";
+import { getUserByClubId } from "@/actions/user";
 
 export const dynamic = "force-dynamic";
 
@@ -37,6 +38,9 @@ export default async function FootballClubPage({
     club.name.toLowerCase().includes(word.toLowerCase())
   );
 
+  const members = await getUserByClubId(id);
+  console.log(members?.[0]?.["image"]);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-6">
@@ -60,6 +64,23 @@ export default async function FootballClubPage({
                 </div>
               </div>
               <AppDownloadButton id={id} />
+              <div className="mt-20">
+                <h2>Official Members</h2>
+                <div className="flex">
+                  {Array.isArray(members) &&
+                    members.map((member: any) => (
+                      <div key={member["_id"]} className="relative h-8 w-8">
+                        <Image
+                          key={member["_id"]}
+                          src={member["image"] ?? "/default.png"}
+                          alt="Member image"
+                          fill
+                          className="rounded-full h-8 w-8"
+                        />
+                      </div>
+                    ))}
+                </div>
+              </div>
             </div>
           </aside>
 

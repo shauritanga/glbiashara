@@ -153,7 +153,7 @@ export default function MembershipPage() {
                       </a>
                     </li>
                     <li>
-                      <strong>Bank:</strong>{" "}
+                      <strong>Bank:</strong>
                       <a
                         href="https://www.nmbbank.co.tz/"
                         target="_blank"

@@ -208,3 +208,13 @@ export async function createUser(
     return { success: false, error: "Failed to create user" };
   }
 }
+
+export async function getUserByClubId(id: string) {
+  try {
+    const users = await User.find({ club: id });
+    console.log({ users });
+    return users;
+  } catch (error) {
+    console.log(error);
+  }
+}
