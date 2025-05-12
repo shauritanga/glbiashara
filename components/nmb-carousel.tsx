@@ -16,34 +16,34 @@ export default function NMBSlider() {
         className="rounded-md"
       >
         <a
-          href="https://www.nmbbank.co.tz/"
+          href="https://www.crdbbank.co.tz/en"
           target="_blank"
           rel="noopener noreferrer"
         >
           <img
-            src="/nmb1.jpeg"
+            src="/crdb.jpg"
             alt="Tourism Image 1"
             className="w-full h-56 object-cover rounded-md"
           />
         </a>
         <a
-          href="https://www.nmbbank.co.tz/business-banking/ways-to-bank/nmb-wakala"
+          href="https://www.crdbbank.co.tz/en/for-business/business-bank-accounts/business-account"
           target="_blank"
           rel="noopener noreferrer"
         >
           <img
-            src="/nmb3.jpeg"
+            src="/wakala.jpg"
             alt="Tourism Image 2"
             className="w-full h-56 object-cover rounded-md"
           />
         </a>
         <a
-          href="https://openaccount.nmbbank.co.tz/"
+          href="https://www.crdbbank.co.tz/en/for-you/bank-loan"
           target="_blank"
           rel="noopener noreferrer"
         >
           <img
-            src="/iu-media.png"
+            src="/simbank.jpg"
             alt="Tourism Image 3"
             className="w-full h-56 object-cover rounded-md"
           />

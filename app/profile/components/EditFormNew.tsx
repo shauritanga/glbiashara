@@ -16,6 +16,7 @@ import { useState, useTransition } from "react";
 import { AlertCircle, CheckCircle2 } from "lucide-react";
 import { IIndustry, IProfession, IUser } from "@/models";
 import business from "@/lib/business.json";
+import { IProfessions } from "@/types";
 
 interface Club {
   _id: string;
@@ -29,7 +30,7 @@ export function EditProfileForm({
 }: {
   profile: IUser;
   clubs: Club[];
-  professions: IProfession[];
+  professions: IProfessions[];
 }) {
   const [isPending, startTransition] = useTransition();
   const [formData, setFormData] = useState({

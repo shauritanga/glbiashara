@@ -211,7 +211,7 @@ export async function createUser(
 
 export async function getUserByClubId(id: string) {
   try {
-    const users = await User.find({ club: id });
+    const users = await User.find({ club: id }).populate("profession");
     console.log({ users });
     return users;
   } catch (error) {

@@ -13,9 +13,8 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
-import Link from "next/link";
+import AdvertBanner from "../../compnonents/Advert";
 
 const MATCH_DATE = new Date("2025-05-30T00:00:00");
 
@@ -67,10 +66,8 @@ function useCountdown(targetDate: Date) {
 
 export default function MembershipPage() {
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
-  const [showInstructions, setShowInstructions] = useState(false);
 
   const router = useRouter();
-  const countdown = useCountdown(MATCH_DATE);
   const { width, height } = useWindowSize();
 
   const handleSelect = (planId: string) => {
@@ -99,96 +96,8 @@ export default function MembershipPage() {
           />
         </div>
         {/* Campaign Banner with Countdown */}
-        {!countdown.isOver && (
-          <>
-            <div
-              onClick={() => setShowInstructions(true)}
-              className="cursor-pointer bg-red-600 text-white rounded-xl shadow-md p-6 mb-6 text-center hover:bg-red-700 transition"
-            >
-              <h3 className="text-xl md:text-2xl font-bold">
-                Simba nguvu moja – Washabiki motisha bonus kwa wachezaji wetu
-                Confederation Cup 2025
-              </h3>
-              <p className="italic mt-2 text-sm md:text-base text-red-100">
-                Ubaya Ubwela
-              </p>
-              <div className="mt-4 text-lg font-semibold">
-                Countdown: {countdown.days}d {countdown.hours}h{" "}
-                {countdown.minutes}m {countdown.seconds}s
-              </div>
-              <p className="mt-2 text-xs text-red-200">
-                (Tap for contribution details)
-              </p>
-            </div>
 
-            {/* Modal Dialog */}
-            <Dialog open={showInstructions} onOpenChange={setShowInstructions}>
-              <DialogContent className="max-w-md">
-                <DialogHeader>
-                  <DialogTitle>How to Contribute</DialogTitle>
-                </DialogHeader>
-                <div className="text-sm space-y-3 text-gray-700">
-                  <p>
-                    🎁 You can support the team with any amount via the
-                    following options:
-                  </p>
-                  <ul className="list-disc list-inside">
-                    <li>
-                      <a
-                        href="https://www.vodacom.co.tz/mpesa"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <strong>Mpesa:</strong> 0767 123 456 (Name: Simba SC)
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://yas.co.tz/mixx-by-yas/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <strong>Tigo Pesa:</strong>
-                        0655 654 321
-                      </a>
-                    </li>
-                    <li>
-                      <strong>Bank:</strong>
-                      <a
-                        href="https://www.nmbbank.co.tz/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        NMB Bank - A/C: 0123456789
-                      </a>
-                    </li>
-                  </ul>
-                  <p>
-                    📣 Every contribution boosts player morale and pushes us
-                    forward!
-                  </p>
-                </div>
-              </DialogContent>
-            </Dialog>
-          </>
-        )}
-
-        {countdown.isOver && (
-          <div className="bg-yellow-100 text-yellow-800 rounded-xl shadow-md p-6 mb-6 text-center">
-            <h3 className="text-2xl font-bold mb-2">
-              🎉 It’s Match Day! Nguvu Moja Simba! 🦁
-            </h3>
-            <p className="text-sm italic">
-              Wakati wa kupambana – tuwaunge mkono mashujaa wetu!
-            </p>
-            <Confetti
-              width={width}
-              height={height}
-              numberOfPieces={250}
-              recycle={false}
-            />
-          </div>
-        )}
+        <AdvertBanner />
 
         <div className="mb-2 text-center">
           <h2 className="text-xl text-red-700 font-semibold tracking-wide uppercase">

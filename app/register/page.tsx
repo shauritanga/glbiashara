@@ -5,6 +5,10 @@ import { createUser } from "@/actions/user";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import countries from "@/lib/countries.json";
+import business from "@/lib/business.json";
+import { getProfessions } from "@/actions/getProfessions";
+import { IProfessions, PageResponse } from "@/types";
+import getClubs from "@/actions/getClubs";
 
 interface Question {
   id: string;
@@ -12,6 +16,7 @@ interface Question {
   type: "text" | "email" | "select" | "password" | "file" | "tel";
   placeholder?: string;
   options?: string[];
+  optionValues?: Record<string, string>; // Map display values to actual values
   accept?: string;
   minLength?: number;
 }
@@ -49,8 +54,15 @@ const sellerQuestions: Question[] = [
     id: "industry",
     text: "What industry is your business in?",
     type: "select",
-    options: ["Technology", "Healthcare", "Retail", "Manufacturing", "Other"],
+    options: business.map((item) => item.business).sort(),
     placeholder: "Select an industry",
+  },
+  {
+    id: "specific",
+    text: "You are business concerned with?",
+    type: "select",
+    options: [], // Will be populated dynamically
+    placeholder: "Select a specification",
   },
   {
     id: "country",
@@ -122,16 +134,11 @@ const finalQuestion: Question[] = [
     placeholder: "Select your club",
   },
   {
-    id: "business",
-    text: "What is your business?",
-    type: "text",
-    placeholder: "Enter your business",
-  },
-  {
     id: "profession",
     text: "What is your profession?",
-    type: "text",
-    placeholder: "Enter your profession",
+    type: "select",
+    options: [], // Will be populated from database
+    placeholder: "Select your profession",
   },
   {
     id: "phone",
@@ -148,14 +155,19 @@ const finalQuestion: Question[] = [
   },
 ];
 
-const allQuestions = [...baseQuestions, ...sellerQuestions, ...finalQuestion];
-const initialAnswers: Record<string, string> = allQuestions.reduce(
-  (acc, q) => ({ ...acc, [q.id]: "" }),
-  {}
-);
-
 export default function Home() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
+  const [professions, setProfessions] = useState<IProfessions[]>([]);
+  const [clubs, setClubs] = useState<PageResponse[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  // Initialize answers after defining the questions
+  const allQuestions = [...baseQuestions, ...sellerQuestions, ...finalQuestion];
+  const initialAnswers: Record<string, string> = allQuestions.reduce(
+    (acc, q) => ({ ...acc, [q.id]: "" }),
+    {}
+  );
+
   const [answers, setAnswers] =
     useState<Record<string, string>>(initialAnswers);
   const [imageFile, setImageFile] = useState<File | null>(null);
@@ -165,11 +177,72 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const router = useRouter();
 
+  //Fetch professions from the database
+  useEffect(() => {
+    const fetchProfessions = async () => {
+      try {
+        const [professionsData, clubsData] = await Promise.all([
+          getProfessions(),
+          getClubs(),
+        ]);
+        setProfessions(professionsData);
+        setClubs(clubsData);
+      } catch (error) {
+        console.error("Failed to fetch professions:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProfessions();
+  }, []);
+
+  console.log(clubs);
+
+  // Get specifications based on selected industry
+  const getSpecificationsForIndustry = (industryName: string): string[] => {
+    const selectedBusiness = business.find((b) => b.business === industryName);
+    return selectedBusiness?.specifications || [];
+  };
+
   const getCurrentQuestions = (): Question[] => {
     if (answers.role === "Buy" && currentQuestionIndex >= 2) {
       return [...baseQuestions.slice(0, 3), ...finalQuestion];
     }
-    return [...baseQuestions, ...sellerQuestions, ...finalQuestion];
+
+    // Create a copy of sellerQuestions to modify
+    const updatedSellerQuestions = [...sellerQuestions];
+
+    // Find the specific question and update its options
+    const specificQuestionIndex = updatedSellerQuestions.findIndex(
+      (q) => q.id === "specific"
+    );
+    if (specificQuestionIndex !== -1 && answers.industry) {
+      updatedSellerQuestions[specificQuestionIndex] = {
+        ...updatedSellerQuestions[specificQuestionIndex],
+        options: getSpecificationsForIndustry(answers.industry),
+      };
+    }
+
+    // Create a copy of finalQuestion to modify
+    const updatedFinalQuestion = [...finalQuestion];
+
+    // Find the profession question and update its options
+    const professionQuestionIndex = updatedFinalQuestion.findIndex(
+      (q) => q.id === "profession"
+    );
+    if (professionQuestionIndex !== -1) {
+      updatedFinalQuestion[professionQuestionIndex] = {
+        ...updatedFinalQuestion[professionQuestionIndex],
+        options: professions.map((p) => p.name),
+      };
+    }
+
+    return [
+      ...baseQuestions,
+      ...updatedSellerQuestions,
+      ...updatedFinalQuestion,
+    ];
   };
 
   const questions = getCurrentQuestions();
@@ -184,7 +257,33 @@ export default function Home() {
       setImageFile(file);
       setAnswers({ ...answers, [currentQuestion.id]: file ? file.name : "" });
     } else {
-      setAnswers({ ...answers, [currentQuestion.id]: e.target.value });
+      let value = e.target.value;
+
+      // If this is the profession question and we have option values mapping
+      if (currentQuestion.id === "profession") {
+        // Find the profession ID that corresponds to the selected name
+        const selectedProfessionName = e.target.value;
+        const selectedProfession = professions.find(
+          (p) => p.name === selectedProfessionName
+        );
+
+        if (selectedProfession) {
+          // Store the profession ID as the value
+          value = selectedProfession._id.toString();
+          console.log(
+            `Selected profession: ${selectedProfessionName}, ID: ${value}`
+          );
+        }
+      }
+
+      const newAnswers = { ...answers, [currentQuestion.id]: value };
+
+      // Reset specific field if industry changes
+      if (currentQuestion.id === "industry") {
+        newAnswers.specific = "";
+      }
+
+      setAnswers(newAnswers);
     }
   };
 
@@ -205,16 +304,19 @@ export default function Home() {
     formData.append("email", answers.email);
     formData.append("role", answers.role);
     formData.append("password", answers.password);
+    formData.append("phone", answers.phone || "");
+    formData.append("club", answers.club || "");
+
+    // Append profession ID directly
+    formData.append("profession", answers.profession || "");
+
     if (answers.role === "Sell") {
       formData.append("businessName", answers.businessName || "");
       formData.append("industry", answers.industry || "");
+      formData.append("specific", answers.specific || "");
       formData.append("country", answers.country || "");
       formData.append("city", answers.city || "");
       formData.append("streetAddress", answers.streetAddress || "");
-      formData.append("club", answers.club || "");
-      formData.append("business", answers.business || "");
-      formData.append("profession", answers.profession || "");
-      formData.append("phone", answers.phone || "");
       if (imageFile) {
         formData.append("image", imageFile);
       }
@@ -277,11 +379,25 @@ export default function Home() {
               <p className="text-green-500 mb-4">Registration successful!</p>
             )}
             <ul className="text-left mb-4">
-              {Object.entries(answers).map(([key, value]) => (
-                <li key={key} className="capitalize">
-                  <strong>{key}:</strong> {value || "Not provided"}
-                </li>
-              ))}
+              {Object.entries(answers).map(([key, value]) => {
+                // Display profession name instead of ID for better readability
+                if (key === "profession" && value) {
+                  const profession = professions.find(
+                    (p) => p._id.toString() === value
+                  );
+                  return (
+                    <li key={key} className="capitalize">
+                      <strong>{key}:</strong>{" "}
+                      {profession ? profession.name : value}
+                    </li>
+                  );
+                }
+                return (
+                  <li key={key} className="capitalize">
+                    <strong>{key}:</strong> {value || "Not provided"}
+                  </li>
+                );
+              })}
             </ul>
             <button
               onClick={handleSubmit}
