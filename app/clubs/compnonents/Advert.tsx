@@ -63,11 +63,7 @@ export default function AdvertBanner() {
       {!countdown.isOver && (
         <>
           <div
-            onClick={() =>
-              session?.user?.id
-                ? setShowInstructions(true)
-                : router.push("/login")
-            }
+            onClick={() => setShowInstructions(true)}
             className="cursor-pointer bg-red-600 text-white rounded-xl shadow-md p-6 mb-6 text-center hover:bg-red-700 transition"
           >
             <h3 className="text-xl md:text-2xl font-bold">
