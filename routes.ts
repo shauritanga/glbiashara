@@ -5,6 +5,7 @@ export const publicRoutes = [
   "/business",
   "/tourism",
   "/companies",
+  "/breweries",
 ];
 export const authRoutes = ["/login", "/register"];
 export const apiAuthPrrefix = "/api/auth";
