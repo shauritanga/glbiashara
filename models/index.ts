@@ -311,6 +311,7 @@ export interface IContribution extends Document {
   paymentMethod: string;
   phone?: string;
   name?: string;
+  club: Schema.Types.ObjectId;
   createdAt: Date;
 }
 
@@ -319,6 +320,7 @@ const contributionSchema = new Schema<IContribution>({
   phone: { type: String },
   paymentMethod: { type: String, required: true },
   name: { type: String },
+  club: { type: Schema.Types.ObjectId, ref: "Page", required: true },
   createdAt: { type: Date, default: Date.now },
 });
 

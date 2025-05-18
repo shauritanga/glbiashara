@@ -413,8 +413,9 @@ function ContributionsContent() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
+          className="w-full max-w-md"
         >
-          <Card className="w-full max-w-md">
+          <Card className="mb-6">
             <CardHeader className="text-center">
               <div
                 className={`mx-auto mb-4 ${colors.light} p-3 rounded-full w-16 h-16 flex items-center justify-center`}
@@ -471,6 +472,116 @@ function ContributionsContent() {
                 Return to Club Page
               </Button>
             </CardFooter>
+          </Card>
+
+          {/* GLBiashara Registration Prompt */}
+          <Card className="border border-blue-200 shadow-md bg-gradient-to-br from-white to-blue-50">
+            <CardHeader className="pb-2">
+              <CardTitle className="text-xl text-blue-700">
+                Discover GLBiashara
+              </CardTitle>
+              <CardDescription>
+                Tanzania's marketplace for business, jobs, and services
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="flex items-start space-x-3">
+                <div className="bg-blue-100 p-2 rounded-full">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 text-blue-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-medium text-gray-900">
+                    Buy & Sell Products
+                  </h4>
+                  <p className="text-sm text-gray-600">
+                    Find local deals or sell your products to thousands of
+                    customers
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-3">
+                <div className="bg-blue-100 p-2 rounded-full">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 text-blue-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-medium text-gray-900">
+                    Find Job Opportunities
+                  </h4>
+                  <p className="text-sm text-gray-600">
+                    Discover jobs matching your skills in your area
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-3">
+                <div className="bg-blue-100 p-2 rounded-full">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 text-blue-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-medium text-gray-900">Local Services</h4>
+                  <p className="text-sm text-gray-600">
+                    Access services near you from trusted providers
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-3 pb-1">
+                <Link href="/register">
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                    Create Free Account
+                  </Button>
+                </Link>
+                <p className="text-xs text-center text-gray-500 mt-2">
+                  Join thousands of Tanzanians already using GLBiashara
+                </p>
+              </div>
+            </CardContent>
           </Card>
         </motion.div>
       </div>

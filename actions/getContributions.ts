@@ -1,5 +1,3 @@
-"use server";
-
 import dbConnect from "@/lib/mongodb";
 import { Contribution } from "@/models";
 import mongoose from "mongoose";
@@ -8,16 +6,34 @@ export async function getClubContributions(clubId: string) {
   try {
     await dbConnect();
 
+    console.log("Fetching contributions for club ID:", clubId);
+
     // Ensure we have a valid ObjectId
     const clubObjectId = new mongoose.Types.ObjectId(clubId);
+    console.log("Club ObjectId:", clubObjectId.toString());
 
     // Get all contributions for this club
-    const contributions = await Contribution.find({ club: clubObjectId });
+    const contributions = await Contribution.find({
+      $or: [
+        { club: clubObjectId },
+        { club: { $exists: false } }, // Include contributions without club field (for backward compatibility)
+      ],
+    });
+
+    console.log(
+      `Found ${contributions.length} contributions for club:`,
+      clubId
+    );
+
+    if (contributions.length > 0) {
+      console.log("Sample contribution:", JSON.stringify(contributions[0]));
+    }
 
     // Calculate total amount
     const totalAmount = contributions.reduce((sum, contribution) => {
       return sum + (contribution.amount || 0);
     }, 0);
+    console.log("Calculated total amount:", totalAmount);
 
     // Count unique contributors (by name)
     const uniqueContributors = new Set();
@@ -26,12 +42,16 @@ export async function getClubContributions(clubId: string) {
         uniqueContributors.add(contribution.name);
       }
     });
+    console.log("Unique contributors count:", uniqueContributors.size);
 
-    return {
+    const result = {
       totalAmount,
       contributionsCount: contributions.length,
       uniqueContributorsCount: uniqueContributors.size,
     };
+
+    console.log("Returning contribution data:", result);
+    return result;
   } catch (error) {
     console.error("Error fetching club contributions:", error);
     return {
