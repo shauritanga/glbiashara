@@ -1,28 +1,14 @@
 "use client";
-
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
-import { useSession } from "next-auth/react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const MATCH_DATE = new Date("2025-05-30T00:00:00");
 
 export default function AdvertBanner() {
-  const [showInstructions, setShowInstructions] = useState(false);
-  const [isClient, setIsClient] = useState(false);
-
-  const { data: session } = useSession();
-
-  console.log("session", session);
-
-  // Hydration-safe countdown
   const [countdown, setCountdown] = useState({
     days: 0,
     hours: 0,
@@ -32,8 +18,6 @@ export default function AdvertBanner() {
   });
 
   useEffect(() => {
-    setIsClient(true);
-
     const updateCountdown = () => {
       const diff = MATCH_DATE.getTime() - Date.now();
       const timeLeft = diff > 0 ? diff : 0;
@@ -47,7 +31,7 @@ export default function AdvertBanner() {
       });
     };
 
-    updateCountdown(); // initial run
+    updateCountdown();
     const interval = setInterval(updateCountdown, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -55,15 +39,12 @@ export default function AdvertBanner() {
   const { width, height } = useWindowSize();
   const router = useRouter();
 
-  if (!isClient) return null; // Prevent hydration mismatch
-
   return (
     <div>
-      {/* Campaign Banner with Countdown */}
       {!countdown.isOver && (
         <>
           <div
-            onClick={() => setShowInstructions(true)}
+            onClick={() => router.push("/clubs/payment-options")}
             className="cursor-pointer bg-red-600 text-white rounded-xl shadow-md p-6 mb-6 text-center hover:bg-red-700 transition"
           >
             <h3 className="text-xl md:text-2xl font-bold">
@@ -81,55 +62,6 @@ export default function AdvertBanner() {
               (Tap for contribution details)
             </p>
           </div>
-
-          {/* Modal Dialog */}
-          <Dialog open={showInstructions} onOpenChange={setShowInstructions}>
-            <DialogContent className="max-w-md">
-              <DialogHeader>
-                <DialogTitle>How to Contribute</DialogTitle>
-              </DialogHeader>
-              <div className="text-sm space-y-3 text-gray-700">
-                <p>
-                  🎁 You can support the team with any amount via the following
-                  options:
-                </p>
-                <ul className="list-disc list-inside">
-                  <li>
-                    <a
-                      href="https://www.vodacom.co.tz/mpesa"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <strong>Mpesa:</strong> 0767 123 456 (Name: Simba SC)
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://yas.co.tz/mixx-by-yas/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <strong>Tigo Pesa:</strong> 0655 654 321
-                    </a>
-                  </li>
-                  <li>
-                    <strong>Bank:</strong>{" "}
-                    <a
-                      href="https://www.crdbbank.co.tz/en"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      CRDB Bank - A/C: 0123456789
-                    </a>
-                  </li>
-                </ul>
-                <p>
-                  📣 Every contribution boosts player morale and pushes us
-                  forward!
-                </p>
-              </div>
-            </DialogContent>
-          </Dialog>
         </>
       )}
 

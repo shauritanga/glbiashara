@@ -87,7 +87,7 @@ export default function CreatePageModal({
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button>Create Page</Button>
+        <span className="cursor-pointer">Create Page</span>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>

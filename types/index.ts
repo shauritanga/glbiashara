@@ -31,3 +31,39 @@ export interface PageResponse {
   createdAt: Date;
   posts: [string];
 }
+
+export interface CompanyProfile {
+  _id: string;
+  name: string;
+  logoUrl?: string;
+  overview?: string;
+  mission?: string;
+  vision?: string;
+  history?: string;
+  productsOrServices?: string[];
+  coreValues?: string[];
+  achievements?: string[];
+  leadership?: {
+    name: string;
+    position: string;
+    bio?: string;
+    photoUrl?: string;
+  }[];
+  targetMarket?: string;
+  contact: {
+    email?: string;
+    phone?: string;
+    website?: string;
+    address?: string;
+    socialMedia?: {
+      platform: string;
+      url: string;
+    }[];
+  };
+  legal?: {
+    registrationNumber?: string;
+    certifications?: string[];
+  };
+  createdAt?: Date;
+  updatedAt?: Date;
+}

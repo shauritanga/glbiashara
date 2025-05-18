@@ -138,7 +138,8 @@ export function Feed({ post }: PostProps) {
             ) : (
               <video
                 src={post.mediaUrl}
-                controls
+                autoPlay
+                loop
                 className="w-full h-full object-cover"
               >
                 Your browser does not support the video tag.

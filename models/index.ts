@@ -192,6 +192,41 @@ export const Profession =
   mongoose.models.Profession ||
   mongoose.model<IProfession>("Profession", professionSchema);
 
+//=====================SKILL====================================
+
+export interface ISkill extends Document {
+  _id: Schema.Types.ObjectId;
+  name: string;
+  category: string;
+  relatedProfessions: Schema.Types.ObjectId[];
+}
+
+const skillSchema = new Schema({
+  name: {
+    type: String,
+    required: [true, "Please add skill name"],
+    unique: true,
+  },
+  category: {
+    type: String,
+    required: [true, "Please add skill category"],
+  },
+  relatedProfessions: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Profession",
+    },
+  ],
+});
+
+// Create indexes for better query performance
+skillSchema.index({ name: 1 }, { unique: true });
+skillSchema.index({ category: 1 });
+skillSchema.index({ relatedProfessions: 1 });
+
+export const Skill =
+  mongoose.models.Skill || mongoose.model<ISkill>("Skill", skillSchema);
+
 //==========================USER===================================
 
 export interface IUser extends Document {
@@ -208,6 +243,7 @@ export interface IUser extends Document {
   country: string;
   businessName: string;
   profession: { name: string; industries: [string] };
+  companyProfileId?: Schema.Types.ObjectId;
   business: string;
   projects?: [
     {
@@ -221,20 +257,18 @@ export interface IUser extends Document {
       status: string;
     }
   ];
+  skills: [
+    {
+      skill: { type: Schema.Types.ObjectId; ref: "Skill" };
+      level: {
+        type: String;
+        enum: ["Beginner", "Intermediate", "Expert"];
+        default: "Intermediate";
+      };
+      endorsements: { type: Number; default: 0 };
+    }
+  ];
 }
-
-const projectScema = new Schema(
-  {
-    name: { type: String, required: true },
-    description: { type: String, required: true },
-    image: { type: String },
-    location: { type: String, required: true },
-    startDate: { type: Date, required: true },
-    endDate: { type: Date, required: true },
-    status: { type: String, required: true },
-  },
-  { timestamps: true }
-);
 
 const userSchema = new Schema<IUser>({
   email: { type: String, unique: true, required: true },
@@ -250,11 +284,17 @@ const userSchema = new Schema<IUser>({
   image: { type: String },
   projects: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "Project",
+      name: { type: String, required: true },
+      description: { type: String, required: true },
+      image: { type: String },
+      location: { type: String, required: true },
+      startDate: { type: Date, required: true },
+      endDate: { type: Date, required: true },
+      status: { type: String, required: true },
     },
   ],
   business: { type: String },
+  companyProfileId: { type: Schema.Types.ObjectId, ref: "CompanyProfile" },
   club: { type: Schema.Types.ObjectId, ref: "Page" },
 });
 
@@ -264,3 +304,142 @@ userSchema.index({ phone: 1, email: 1 }, { unique: true });
 
 export const User =
   mongoose.models?.User || mongoose.model<IUser>("User", userSchema);
+
+export interface IContribution extends Document {
+  _id: Schema.Types.ObjectId;
+  amount: number;
+  paymentMethod: string;
+  phone?: string;
+  name?: string;
+  createdAt: Date;
+}
+
+const contributionSchema = new Schema<IContribution>({
+  amount: { type: Number, required: true },
+  phone: { type: String },
+  paymentMethod: { type: String, required: true },
+  name: { type: String },
+  createdAt: { type: Date, default: Date.now },
+});
+
+export const Contribution =
+  mongoose.models.Contribution ||
+  mongoose.model("Contribution", contributionSchema);
+
+// models/CompanyProfile.ts
+export interface ICompanyProfile extends Document {
+  name: string;
+  logoUrl?: string;
+  overview?: string;
+  mission?: string;
+  vision?: string;
+  history?: string;
+  productsOrServices?: string[];
+  coreValues?: string[];
+  achievements?: string[];
+  leadership?: {
+    name: string;
+    position: string;
+    bio?: string;
+    photoUrl?: string;
+  }[];
+  targetMarket?: string;
+  contact: {
+    email?: string;
+    phone?: string;
+    website?: string;
+    address?: string;
+    socialMedia?: {
+      platform: string;
+      url: string;
+    }[];
+  };
+  legal?: {
+    registrationNumber?: string;
+    certifications?: string[];
+  };
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+const CompanyProfileSchema = new Schema<ICompanyProfile>(
+  {
+    name: { type: String, required: true },
+    logoUrl: { type: String },
+    overview: { type: String },
+    mission: { type: String },
+    vision: { type: String },
+    history: { type: String },
+    productsOrServices: [{ type: String }],
+    coreValues: [{ type: String }],
+    achievements: [{ type: String }],
+    leadership: [
+      {
+        name: { type: String, required: true },
+        position: { type: String, required: true },
+        bio: { type: String },
+        photoUrl: { type: String },
+      },
+    ],
+    targetMarket: { type: String },
+    contact: {
+      email: { type: String },
+      phone: { type: String },
+      website: { type: String },
+      address: { type: String },
+      socialMedia: [
+        {
+          platform: { type: String },
+          url: { type: String },
+        },
+      ],
+    },
+    legal: {
+      registrationNumber: { type: String },
+      certifications: [{ type: String }],
+    },
+  },
+  {
+    timestamps: true, // Adds createdAt and updatedAt fields automatically
+  }
+);
+
+export const CompanyProfile =
+  mongoose.models.CompanyProfile ||
+  mongoose.model<ICompanyProfile>("CompanyProfile", CompanyProfileSchema);
+
+export interface IConnection extends Document {
+  sender: Schema.Types.ObjectId;
+  receiver: Schema.Types.ObjectId;
+  status: "pending" | "accepted" | "rejected";
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+const connectionSchema = new Schema(
+  {
+    sender: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    receiver: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    status: {
+      type: String,
+      enum: ["pending", "accepted", "rejected"],
+      default: "pending",
+    },
+  },
+  { timestamps: true }
+);
+
+// Create a compound index to ensure uniqueness of connections
+connectionSchema.index({ sender: 1, receiver: 1 }, { unique: true });
+
+export const Connection =
+  mongoose.models.Connection ||
+  mongoose.model<IConnection>("Connection", connectionSchema);

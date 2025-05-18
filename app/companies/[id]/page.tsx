@@ -1,55 +1,46 @@
-import dbConnect from "@/lib/mongodb";
-import { Page, IPage, User } from "@/models";
-
-import CompanyDetail from "../components/CompanyDetail";
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import CompanyProfileView from "../components/CompanyProfileView";
+import RelatedProfessionals from "../components/RelatedProfessionals";
+import { ArrowLeft } from "lucide-react";
+import { getCompanyProfile } from "@/actions/getCompanyProfile";
 
 export default async function CompanyDetailPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
-  await dbConnect();
+  const { id } = await params;
+  const result = await getCompanyProfile(id);
 
-  const companyId = (await params).id;
-
-  const result = await Page.findById(companyId);
-  console.log(result.industry);
-  const company = JSON.parse(JSON.stringify(result, null, 2));
-
-  if (!company || company.type !== "company") {
-    return (
-      <div className="text-center py-16 text-blue-600">Company not found</div>
-    );
+  if (!result) {
+    return notFound();
   }
 
-  // Extract keywords from company description for profession matching
-  const professionKeywords = company.description
-    .toLowerCase()
-    .split(/\W+/)
-    .filter(Boolean);
-
-  // Fetch related professionals
-  const response = await User.find({
-    profession: { $exists: true },
-  })
-    .populate("profession")
-    .select("name profession image city country")
-    .limit(5)
-    .lean();
-
-  const relatedProfessionals = JSON.parse(JSON.stringify(response, null, 2));
-
-  const professionals = relatedProfessionals.filter((professional: any) =>
-    professional.profession.industries.includes(company?.industry)
-  );
+  const { companyProfile, owner, professionals } = result;
 
   return (
-    <div className="min-h-screen bg-blue-50 py-10">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <CompanyDetail
-          company={company as IPage}
-          relatedProfessionals={professionals as any[]}
-        />
+    <div className="min-h-screen bg-gray-50 relative">
+      <div className="max-w-7xl mx-auto px-4 pt-6 pb-2 relative z-10">
+        <Link
+          href="/companies"
+          className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+        >
+          <ArrowLeft className="h-4 w-4 mr-2" />
+          Back to Companies
+        </Link>
+      </div>
+
+      <CompanyProfileView
+        company={null}
+        companyProfile={companyProfile}
+        owner={owner}
+      />
+
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="lg:col-span-1">
+          <RelatedProfessionals professionals={professionals} />
+        </div>
       </div>
     </div>
   );

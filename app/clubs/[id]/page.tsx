@@ -12,6 +12,9 @@ import TotalSlider from "@/components/total_energy";
 import { getUserByClubId } from "@/actions/user";
 import AdvertBanner from "../compnonents/Advert";
 import { Button } from "@/components/ui/button";
+import { getClubContributions } from "@/actions/getContributions";
+import ContributionCounter from "./components/ContributionCounter";
+import BREWERIESlider from "@/components/breweries-slider";
 
 export const dynamic = "force-dynamic";
 
@@ -27,6 +30,10 @@ export default async function FootballClubPage({
   const uniqueCategories = Array.from(
     new Set(business.map((item: IPost) => item.category))
   ) as string[];
+  const members = await getUserByClubId(id);
+
+  // Get contributions data
+  const contributionsData = await getClubContributions(id);
 
   if (!club) {
     return (
@@ -111,8 +118,6 @@ export default async function FootballClubPage({
       break;
     }
   }
-
-  const members = await getUserByClubId(id);
 
   return (
     <div className={`min-h-screen ${colorScheme.bg}`}>
@@ -199,44 +204,16 @@ export default async function FootballClubPage({
 
               {/* Only show for Simba */}
               {isSimba && (
-                <div className="mt-20">
+                <div className="my-20">
                   <AdvertBanner />
-                  <div className="mt-4">
-                    <h1
-                      className={`text-xl font-bold ${colorScheme.text} mb-2`}
-                    >
-                      Current Amount:{" "}
-                      {Intl.NumberFormat("en-US", {
-                        style: "currency",
-                        currency: "TZS",
-                        minimumFractionDigits: 0,
-                        maximumFractionDigits: 0,
-                      }).format(1000000)}
-                    </h1>
-                    <div className="flex items-center gap-2">
-                      <Link href={`/clubs/${id}/contributors`}>
-                        <Button
-                          className={`flex items-center gap-2 ${colorScheme.buttonBg} ${colorScheme.buttonHover}`}
-                        >
-                          <span>Contributors</span>
-                          <span
-                            className={`text-xs bg-white ${colorScheme.text.replace(
-                              "text-",
-                              "text-"
-                            )} px-2 py-1 rounded-full`}
-                          >
-                            {Array.isArray(members) ? members.length : 0}
-                          </span>
-                        </Button>
-                      </Link>
-                      <span className="text-sm text-gray-600">
-                        ({Array.isArray(members) ? members.length : 0}{" "}
-                        supporters)
-                      </span>
-                    </div>
-                  </div>
+                  <ContributionCounter
+                    clubId={id}
+                    initialData={contributionsData}
+                    colorScheme={colorScheme}
+                  />
                 </div>
               )}
+              <BREWERIESlider />
             </div>
           </aside>
 
@@ -254,7 +231,7 @@ export default async function FootballClubPage({
           </main>
 
           {/* Right Sidebar */}
-          <aside className="md:col-span-3 space-y-6">
+          <aside className="md:col-span-3 space-y-6 z-0">
             {/* Business Opportunities */}
             <div
               className={`bg-white rounded-lg shadow-sm p-4 ${

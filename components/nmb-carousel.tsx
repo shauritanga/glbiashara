@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 export default function NMBSlider() {
   return (
-    <div className="bg-white rounded-lg shadow-sm">
+    <div className="bg-white z-30 rounded-lg shadow-sm">
       <Slider
         infinite={true}
         speed={500}
