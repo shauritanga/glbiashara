@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import BREWERIESlider from "@/components/breweries-slider";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Breweries() {
   const router = useRouter();
@@ -341,46 +342,51 @@ export default function Breweries() {
                   {relatedBusinesses
                     .concat(relatedBusinesses)
                     .map((business: any, index: number) => (
-                      <div
+                      <Link
                         key={`${business._id}-${index}`}
-                        className="bg-white rounded-lg shadow-md overflow-hidden w-72 flex-shrink-0 mx-3 transition-transform hover:scale-[1.02]"
+                        href={`/bars/${business._id}`}
                       >
-                        <div className="h-48 relative">
-                          <Image
-                            src={business.image}
-                            alt={business.name}
-                            fill
-                            className="object-cover"
-                            onError={(e) => {
-                              const target = e.target as HTMLImageElement;
-                              target.src = `https://placehold.co/400x300/amber700/FFFFFF?text=${business.name}`;
-                            }}
-                          />
-                        </div>
-                        <div className="p-4">
-                          <h3 className="text-lg font-semibold text-amber-800 mb-1">
-                            {business.name}
-                          </h3>
-                          <p className="text-gray-500 text-sm mb-2">
-                            {business.location}
-                          </p>
-                          <p className="text-gray-600 text-sm mb-3 line-clamp-2">
-                            {business.description}
-                          </p>
-                          <div className="flex flex-wrap gap-2">
-                            {business.specifications.map(
-                              (spec: string, i: number) => (
-                                <span
-                                  key={i}
-                                  className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
-                                >
-                                  {spec}
-                                </span>
-                              )
-                            )}
+                        <div
+                          key={`${business._id}-${index}`}
+                          className="bg-white rounded-lg shadow-md overflow-hidden w-72 flex-shrink-0 mx-3 transition-transform hover:scale-[1.02]"
+                        >
+                          <div className="h-48 relative">
+                            <Image
+                              src={business.image}
+                              alt={business.name}
+                              fill
+                              className="object-cover"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.src = `https://placehold.co/400x300/amber700/FFFFFF?text=${business.name}`;
+                              }}
+                            />
+                          </div>
+                          <div className="p-4">
+                            <h3 className="text-lg font-semibold text-amber-800 mb-1">
+                              {business.name}
+                            </h3>
+                            <p className="text-gray-500 text-sm mb-2">
+                              {business.location}
+                            </p>
+                            <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                              {business.description}
+                            </p>
+                            <div className="flex flex-wrap gap-2">
+                              {business.specifications.map(
+                                (spec: string, i: number) => (
+                                  <span
+                                    key={i}
+                                    className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                                  >
+                                    {spec}
+                                  </span>
+                                )
+                              )}
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </Link>
                     ))}
                 </div>
               </div>
