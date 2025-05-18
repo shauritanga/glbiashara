@@ -77,7 +77,7 @@ body {
   }
 }
 
-/* Add this to your globals.css file */
+/* Add this to your globals.css file if it's not already there */
 .hide-scrollbar {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
@@ -85,4 +85,86 @@ body {
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none;  /* Chrome, Safari and Opera */
+}
+
+/* Add this to your globals.css file for the continuous scrolling effect */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee {
+  display: flex;
+  flex-direction: row; /* Ensure horizontal layout */
+  animation: marquee 30s linear infinite;
+  padding: 10px 0;
+  width: max-content; /* Ensure it takes the width of all children */
+}
+
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* For smaller screens, adjust the animation speed */
+@media (max-width: 768px) {
+  .marquee {
+    animation: marquee 20s linear infinite;
+  }
+}
+
+/* Add this animation for horizontal scrolling */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50%));
+  }
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Auto-scrolling container styles */
+.auto-scroll-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.auto-scroll-content {
+  display: flex;
+  animation: autoScroll 30s linear infinite;
+  width: max-content;
+  padding: 10px 0;
+}
+
+.auto-scroll-content:hover {
+  animation-play-state: paused;
+}
+
+@keyframes autoScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50%));
+  }
+}
+
+@media (max-width: 768px) {
+  .auto-scroll-content {
+    animation-duration: 20s;
+  }
 }

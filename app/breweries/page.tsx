@@ -137,6 +137,33 @@ export default function Breweries() {
                 "Traditional pub atmosphere with all TBL products on tap",
               specifications: ["Bar", "Pub", "Sports Bar"],
             },
+            {
+              _id: "bar5",
+              name: "Serengeti Pub",
+              location: "Mwanza",
+              image: "/serengeti-pub.jpeg",
+              description:
+                "Traditional pub atmosphere with all TBL products on tap",
+              specifications: ["Bar", "Pub", "Sports Bar"],
+            },
+            {
+              _id: "bar6",
+              name: "Serengeti Pub",
+              location: "Mwanza",
+              image: "/serengeti-pub.jpeg",
+              description:
+                "Traditional pub atmosphere with all TBL products on tap",
+              specifications: ["Bar", "Pub", "Sports Bar"],
+            },
+            {
+              _id: "bar7",
+              name: "Serengeti Pub",
+              location: "Mwanza",
+              image: "/serengeti-pub.jpeg",
+              description:
+                "Traditional pub atmosphere with all TBL products on tap",
+              specifications: ["Bar", "Pub", "Sports Bar"],
+            },
           ]);
           setLoading(false);
         }, 1000);
@@ -308,55 +335,57 @@ export default function Breweries() {
               <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-700"></div>
             </div>
           ) : (
-            <div className="relative">
-              <div className="overflow-x-auto pb-4 hide-scrollbar">
-                <div className="flex space-x-6 min-w-max px-1">
-                  {relatedBusinesses.map((business: any) => (
-                    <div
-                      key={business._id}
-                      className="bg-white rounded-lg shadow-md overflow-hidden w-72 flex-shrink-0 transition-transform hover:scale-[1.02]"
-                    >
-                      <div className="h-48 relative">
-                        <Image
-                          src={business.image}
-                          alt={business.name}
-                          fill
-                          className="object-cover"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.src = `https://placehold.co/400x300/amber700/FFFFFF?text=${business.name}`;
-                          }}
-                        />
-                      </div>
-                      <div className="p-4">
-                        <h3 className="text-lg font-semibold text-amber-800 mb-1">
-                          {business.name}
-                        </h3>
-                        <p className="text-gray-500 text-sm mb-2">
-                          {business.location}
-                        </p>
-                        <p className="text-gray-600 text-sm mb-3 line-clamp-2">
-                          {business.description}
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          {business.specifications.map(
-                            (spec: string, i: number) => (
-                              <span
-                                key={i}
-                                className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
-                              >
-                                {spec}
-                              </span>
-                            )
-                          )}
+            <div className="relative overflow-hidden">
+              <div className="auto-scroll-container">
+                <div className="auto-scroll-content">
+                  {relatedBusinesses
+                    .concat(relatedBusinesses)
+                    .map((business: any, index: number) => (
+                      <div
+                        key={`${business._id}-${index}`}
+                        className="bg-white rounded-lg shadow-md overflow-hidden w-72 flex-shrink-0 mx-3 transition-transform hover:scale-[1.02]"
+                      >
+                        <div className="h-48 relative">
+                          <Image
+                            src={business.image}
+                            alt={business.name}
+                            fill
+                            className="object-cover"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.src = `https://placehold.co/400x300/amber700/FFFFFF?text=${business.name}`;
+                            }}
+                          />
+                        </div>
+                        <div className="p-4">
+                          <h3 className="text-lg font-semibold text-amber-800 mb-1">
+                            {business.name}
+                          </h3>
+                          <p className="text-gray-500 text-sm mb-2">
+                            {business.location}
+                          </p>
+                          <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                            {business.description}
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {business.specifications.map(
+                              (spec: string, i: number) => (
+                                <span
+                                  key={i}
+                                  className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
+                                >
+                                  {spec}
+                                </span>
+                              )
+                            )}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
                 </div>
               </div>
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-12 bg-gradient-to-r from-gray-50 to-transparent h-full pointer-events-none"></div>
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-12 bg-gradient-to-l from-gray-50 to-transparent h-full pointer-events-none"></div>
+              <div className="absolute left-0 top-0 w-12 bg-gradient-to-r from-gray-50 to-transparent h-full pointer-events-none"></div>
+              <div className="absolute right-0 top-0 w-12 bg-gradient-to-l from-gray-50 to-transparent h-full pointer-events-none"></div>
             </div>
           )}
         </section>
