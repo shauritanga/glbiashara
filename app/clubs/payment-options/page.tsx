@@ -107,63 +107,32 @@ export default function PaymentOptionsPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-black">
-      {/* Background slider */}
+      {/* Background video */}
       <div className="absolute inset-0 z-0">
-        <Slider {...sliderSettings} className="h-full">
-          <div className="relative h-screen">
-            <Image
-              src="/mkapa.jpg"
-              alt="Simba SC"
-              fill
-              className="object-cover"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.src =
-                  "https://placehold.co/1920x1080/FF0000/FFFFFF?text=Simba+SC";
-              }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30"></div>
-          </div>
-          <div className="relative h-screen">
-            <video
-              className="w-full h-full object-cover"
-              autoPlay
-              muted
-              loop
-              playsInline
-              onError={(e) => {
-                const target = e.target as HTMLVideoElement;
-                target.style.display = "none";
-                const parent = target.parentElement;
-                if (parent) {
-                  const placeholder = document.createElement("div");
-                  placeholder.className =
-                    "w-full h-full flex items-center justify-center bg-red-600";
-                  placeholder.innerHTML =
-                    "<p class='text-white text-xl'>Simba SC</p>";
-                  parent.appendChild(placeholder);
-                }
-              }}
-            >
-              <source src="/videos/simbavideo1.mp4" type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30"></div>
-          </div>
-          <div className="relative h-screen">
-            <Image
-              src="/simba-team.jpg"
-              alt="Simba SC Fans"
-              fill
-              className="object-cover"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.src =
-                  "https://placehold.co/1920x1080/FF0000/FFFFFF?text=Support+Simba+SC";
-              }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30"></div>
-          </div>
-        </Slider>
+        <div className="relative h-screen">
+          <video
+            className="w-full h-full object-cover"
+            autoPlay
+            loop
+            playsInline
+            onError={(e) => {
+              const target = e.target as HTMLVideoElement;
+              target.style.display = "none";
+              const parent = target.parentElement;
+              if (parent) {
+                const placeholder = document.createElement("div");
+                placeholder.className =
+                  "w-full h-full flex items-center justify-center bg-red-600";
+                placeholder.innerHTML =
+                  "<p class='text-white text-xl'>Simba SC</p>";
+                parent.appendChild(placeholder);
+              }
+            }}
+          >
+            <source src="/videos/simbavideo2.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30"></div>
+        </div>
       </div>
 
       {/* Content overlay */}
