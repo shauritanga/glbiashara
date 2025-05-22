@@ -307,7 +307,7 @@ export default async function FootballClubPage({
                 <AzaniaSlider />
               </div>
             </div>
-            <div
+            {/* <div
               className={`bg-white rounded-lg shadow-sm p-4 ${
                 colorScheme.border === "border-white"
                   ? ""
@@ -320,7 +320,7 @@ export default async function FootballClubPage({
               <div className="h-56 bg-gray-100 rounded-md hover:opacity-90 transition-opacity">
                 <NMBSlider />
               </div>
-            </div>
+            </div> */}
             <div
               className={`bg-white rounded-lg shadow-sm p-4 ${
                 colorScheme.border === "border-white"
