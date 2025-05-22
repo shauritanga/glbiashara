@@ -362,12 +362,12 @@ export default function PaymentOptionsPage() {
                   </div>
                 </div>
                 <div className="p-4">
-                  <h4 className="font-bold text-gray-900 mb-2">NMB Bank</h4>
+                  <h4 className="font-bold text-gray-900 mb-2">CRDB Bank</h4>
                   <p className="text-sm text-gray-600 mb-4">
                     Secure bank transfer option
                   </p>
                   <p className="text-sm font-medium text-gray-800 mb-4">
-                    NMB Bank - A/C: 0123456789
+                    CRDB Bank - A/C: 0123456789
                   </p>
                   <Button
                     className="w-full bg-green-600 hover:bg-green-700"

@@ -2,6 +2,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Link from "next/link";
 
 export default function NMBSlider() {
   return (
@@ -15,39 +16,27 @@ export default function NMBSlider() {
         autoplaySpeed={3000}
         className="rounded-md"
       >
-        <a
-          href="https://www.crdbbank.co.tz/en"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <Link href="/crdb">
           <img
             src="/crdb.jpg"
             alt="Tourism Image 1"
             className="w-full h-56 object-cover rounded-md"
           />
-        </a>
-        <a
-          href="https://www.crdbbank.co.tz/en/for-business/business-bank-accounts/business-account"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        </Link>
+        <Link href="/crdb">
           <img
             src="/wakala.jpg"
             alt="Tourism Image 2"
             className="w-full h-56 object-cover rounded-md"
           />
-        </a>
-        <a
-          href="https://www.crdbbank.co.tz/en/for-you/bank-loan"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        </Link>
+        <Link href="/crdb">
           <img
             src="/simbank.jpg"
             alt="Tourism Image 3"
             className="w-full h-56 object-cover rounded-md"
           />
-        </a>
+        </Link>
       </Slider>
     </div>
   );
