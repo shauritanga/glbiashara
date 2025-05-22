@@ -1,3 +1,5 @@
+"use server";
+
 import dbConnect from "@/lib/mongodb";
 import { Contribution } from "@/models";
 import mongoose from "mongoose";
@@ -59,5 +61,43 @@ export async function getClubContributions(clubId: string) {
       contributionsCount: 0,
       uniqueContributorsCount: 0,
     };
+  }
+}
+
+// New function to get list of contributors with their amounts
+export async function getContributorsList(clubId: string) {
+  try {
+    await dbConnect();
+
+    console.log("Fetching contributors list for club ID:", clubId);
+
+    // Ensure we have a valid ObjectId
+    const clubObjectId = new mongoose.Types.ObjectId(clubId);
+
+    // Get all contributions for this club
+    const contributions = await Contribution.find({
+      $or: [
+        { club: clubObjectId },
+        { club: { $exists: false } }, // Include contributions without club field (for backward compatibility)
+      ],
+    })
+      .sort({ createdAt: -1 }) // Sort by newest first
+      .lean(); // Convert to plain JavaScript objects
+
+    // Format the data to include only necessary fields
+    const contributors = contributions.map((contribution) => ({
+      _id: contribution._id,
+      name: contribution.name || "Anonymous",
+      amount: contribution.amount || 0,
+      createdAt: contribution.createdAt,
+      phone: contribution.phone || "",
+      paymentMethod: contribution.paymentMethod || "",
+    }));
+
+    console.log(`Returning ${contributors.length} contributors`);
+    return contributors;
+  } catch (error) {
+    console.error("Error fetching contributors list:", error);
+    return [];
   }
 }

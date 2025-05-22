@@ -13,9 +13,14 @@ const industrySchema = new Schema({
   },
 });
 
-export const Industry =
-  mongoose.models.Industry ||
-  mongoose.model<IIndustry>("Industry", industrySchema);
+// Fix: Use a safer approach to check for existing models
+const Industry =
+  mongoose.models?.Industry ||
+  (mongoose.models.Industry === undefined
+    ? mongoose.model<IIndustry>("Industry", industrySchema)
+    : mongoose.models.Industry);
+
+export { Industry };
 
 //===================PAGE================================
 

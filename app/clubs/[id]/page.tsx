@@ -16,6 +16,7 @@ import { getClubContributions } from "@/actions/getContributions";
 import ContributionCounter from "./components/ContributionCounter";
 import BREWERIESlider from "@/components/breweries-slider";
 import VodaComSlider from "@/components/voda-carousel";
+import AzaniaSlider from "@/components/azania-slider";
 
 export const dynamic = "force-dynamic";
 
@@ -290,6 +291,20 @@ export default async function FootballClubPage({
               </h5>
               <div className="h-56 bg-gray-100 rounded-md hover:opacity-90 transition-opacity">
                 <TotalSlider />
+              </div>
+            </div>
+            <div
+              className={`bg-white rounded-lg shadow-sm p-4 ${
+                colorScheme.border === "border-white"
+                  ? ""
+                  : "border border-yellow-200"
+              }`}
+            >
+              <h5 className={`text-lg font-semibold ${colorScheme.text} mb-3`}>
+                Azania Bank
+              </h5>
+              <div className="h-56 bg-gray-100 rounded-md hover:opacity-90 transition-opacity">
+                <AzaniaSlider />
               </div>
             </div>
             <div
