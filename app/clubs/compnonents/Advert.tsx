@@ -6,7 +6,7 @@ import { useWindowSize } from "react-use";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const MATCH_DATE = new Date("2025-05-30T00:00:00");
+const MATCH_DATE = new Date("2025-06-15T00:00:00");
 
 export default function AdvertBanner() {
   const [countdown, setCountdown] = useState({
