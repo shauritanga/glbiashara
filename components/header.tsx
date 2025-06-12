@@ -73,6 +73,12 @@ export function Header({ session }: { session: Session }) {
           >
             Schools
           </Link>
+          <Link
+            href="/sports"
+            className="text-gray-600 hover:text-gray-800 transition-colors duration-200"
+          >
+            Sports Academy & Talents
+          </Link>
         </nav>
 
         {/* Auth Buttons / User Avatar */}
@@ -143,6 +149,12 @@ export function Header({ session }: { session: Session }) {
             className="text-gray-600 hover:text-gray-800 py-2"
           >
             Schools
+          </Link>
+          <Link
+            href="/sports"
+            className="text-gray-600 hover:text-gray-800 py-2"
+          >
+            Sports Academy & Talents
           </Link>
           {!session?.user && (
             <Button variant="outline" asChild className="w-full">

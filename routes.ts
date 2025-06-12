@@ -10,6 +10,7 @@ export const publicRoutes = [
   "/bars",
   "/azania",
   "/crdb",
+  "/sports",
 ];
 export const authRoutes = ["/login", "/register"];
 export const apiAuthPrrefix = "/api/auth";
